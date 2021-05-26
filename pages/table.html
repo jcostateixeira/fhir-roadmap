@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>RoadMap Information - Table</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../dist/js/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" type="text/css" href="../dist/css/main.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1>RoadMap Information</h1>
+            <p>A visualization of the current roadmap.</p>
+        </div>
+
+        <div class="navbar">
+            <a href="../index.html">Home</a>
+            <a href="../pages/table.html" class="active">Table</a>
+            <a href="../pages/visualization.html">Visualization</a>
+        </div>
+
+        <div class="row">
+            <div class="main">
+                <h2>Table Data Content</h2>
+                <table id="example" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>topic</th>
+                            <th>type</th>
+                            <th>name</th>
+                            <th>status</th>
+                            <th>date_pc</th>
+                            <th>legal</th>
+                            <th>maturity</th>
+                            <th>published</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>id</th>
+                            <th>topic</th>
+                            <th>type</th>
+                            <th>name</th>
+                            <th>status</th>
+                            <th>date_pc</th>
+                            <th>legal</th>
+                            <th>maturity</th>
+                            <th>published</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="footer">
+            <p>© 2021 HL7 Belgium</p>
+        </div>
+        <script src="../dist/js/table.js"></script>
+    </body>
+</html>

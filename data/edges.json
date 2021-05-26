@@ -1,0 +1,22 @@
+[
+    {  "from": "001","to": "008", "relation":"extension", "label": "Extension","arrows": {"to":{ "enabled": true,"type":"curve"} },"color": { "color": "#400000" }},
+    {  "from": "001","to": "007", "relation":"extension", "label": "Extension","arrows": {"to":{ "enabled": true,"type":"curve"} },"color": { "color": "#400000" }},
+    {  "from": "001","to": "010", "relation":"extension", "label": "Extension","arrows": {"to":{ "enabled": true,"type":"curve"} },"color": { "color": "#400000" }},
+    {  "from": "001","to": "009", "relation":"extension", "label": "Extension","arrows": {"to":{ "enabled": true,"type":"curve"} },"color": { "color": "#400000" }},
+    {  "from": "001","to": "003", "relation":"binding_req", "label": "Bound (Req)","arrows": {"to":{ "enabled": true,"type":"arrow"} },"color": { "color": "#000000" }},
+    {  "from": "003","to": "004", "relation":"values_from", "label": "Values from","arrows": {"to":{ "enabled": true,"type":"crow"} },"color": { "color": "#404000" }},
+    {  "from": "001","to": "005", "relation":"binding_req", "label": "Bound (Req)","arrows": {"to":{ "enabled": true,"type":"arrow"} },"color": { "color": "#000000" }},
+    {  "from": "005","to": "006", "relation":"values_from", "label": "Values from","arrows": {"to":{ "enabled": true,"type":"crow"} },"color": { "color": "#404000" }},
+    {  "from": "007","to": "011", "relation":"system", "label": "System","arrows": {"to":{ "enabled": true,"type":"diamond"} },"color": { "color": "#404040" }},
+    {  "from": "007","to": "015", "relation":"system", "label": "System","arrows": {"to":{ "enabled": true,"type":"diamond"} },"color": { "color": "#404040" }},
+    {  "from": "001","to": "012", "relation":"system", "label": "System","arrows": {"to":{ "enabled": true,"type":"diamond"} },"color": { "color": "#404040" }},
+    {  "from": "001","to": "013", "relation":"system", "label": "System","arrows": {"to":{ "enabled": true,"type":"diamond"} },"color": { "color": "#404040" }},
+    {  "from": "009","to": "012", "relation":"system", "label": "System","arrows": {"to":{ "enabled": true,"type":"diamond"} },"color": { "color": "#404040" }},
+    {  "from": "009","to": "013", "relation":"system", "label": "System","arrows": {"to":{ "enabled": true,"type":"diamond"} },"color": { "color": "#404040" }},
+    {  "from": "001","to": "014", "relation":"system", "label": "System","arrows": {"to":{ "enabled": true,"type":"diamond"} },"color": { "color": "#404040" }},
+    {  "from": "001","to": "016", "relation":"extension", "label": "Extension","arrows": {"to":{ "enabled": true,"type":"curve"} },"color": { "color": "#400000" }},
+    {  "from": "016","to": "017", "relation":"binding_req", "label": "Bound (Req)","arrows": {"to":{ "enabled": true,"type":"arrow"} },"color": { "color": "#000000" }},
+    {  "from": "017","to": "018", "relation":"values_from", "label": "Values from","arrows": {"to":{ "enabled": true,"type":"crow"} },"color": { "color": "#404000" }},
+    {  "from": "010","to": "019", "relation":"binding_req", "label": "Bound (Req)","arrows": {"to":{ "enabled": true,"type":"arrow"} },"color": { "color": "#000000" }},
+    {  "from": "019","to": "002", "relation":"values_from", "label": "Values from","arrows": {"to":{ "enabled": true,"type":"crow"} },"color": { "color": "#404000" }}
+  ]

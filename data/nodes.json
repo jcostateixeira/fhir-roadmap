@@ -1,0 +1,21 @@
+[
+    {"id":"001","size":170,"label":"*BeVaccination**\n(Profile)\nStatus: active\n","color":"#CFCFCF","shape":"box","font":{ "align": "left", "multi":"md" }},
+    {"id":"002","size":170,"label":"*VaccinationConfirmationStatus**\n(CodeSystem)\nStatus: draft\n","color":"#CFFFFF","shape":"box","font":{ "align": "left", "multi":"md" }},
+    {"id":"003","size":170,"label":"*VaccinationStatusReason**\n(ValueSet)\nStatus: draft\n","color":"#CFFFCF","shape":"box","font":{ "align": "left", "multi":"md" }},
+    {"id":"004","size":170,"label":"*VaccinationStatusReason**\n(CodeSystem)\nStatus: draft\n","color":"#CFFFFF","shape":"box","font":{ "align": "left", "multi":"md" }},
+    {"id":"005","size":170,"label":"*VaccineAdministrationRoute**\n(ValueSet)\nStatus: draft\n","color":"#CFFFCF","shape":"box","font":{ "align": "left", "multi":"md" }},
+    {"id":"006","size":170,"label":"*VaccineAdministrationRoute**\n(CodeSystem)\nStatus: draft\n","color":"#CFFFFF","shape":"box","font":{ "align": "left", "multi":"md" }},
+    {"id":"007","size":170,"label":"*AdministeredProduct**\n(Extension)\nStatus: active\n","color":"#FFCFCF","shape":"box","font":{ "align": "left", "multi":"md" }},
+    {"id":"008","size":170,"label":"*VaccinationOriginalOrder**\n(Extension)\nStatus: active\n","color":"#FFCFCF","shape":"box","font":{ "align": "left", "multi":"md" }},
+    {"id":"009","size":170,"label":"*VaccinationRecorder**\n(Extension)\nStatus: active\n","color":"#FFCFCF","shape":"box","font":{ "align": "left", "multi":"md" }},
+    {"id":"010","size":170,"label":"*VaccineConfirmationStatus**\n(Extension)\nStatus: active\n","color":"#FFCFCF","shape":"box","font":{ "align": "left", "multi":"md" }},
+    {"id":"011","size":170,"label":"*CNKCode**\n(NamingSystem)\nStatus: active\n","color":"#FFCFFF","shape":"box","font":{ "align": "left", "multi":"md" }},
+    {"id":"012","size":170,"label":"*NIHDIOrganization**\n(NamingSystem)\nStatus: active\n","color":"#FFCFFF","shape":"box","font":{ "align": "left", "multi":"md" }},
+    {"id":"013","size":170,"label":"*NIHDIProfessional**\n(NamingSystem)\nStatus: active\n","color":"#FFCFFF","shape":"box","font":{ "align": "left", "multi":"md" }},
+    {"id":"014","size":170,"label":"*ONEVaccinationID**\n(NamingSystem)\nStatus: active\n","color":"#FFCFFF","shape":"box","font":{ "align": "left", "multi":"md" }},
+    {"id":"015","size":170,"label":"*ProductManufacturer**\n(NamingSystem)\nStatus: active\n","color":"#FFCFFF","shape":"box","font":{ "align": "left", "multi":"md" }},
+    {"id":"016","size":170,"label":"*BeVaccinationLocation**\n(Extension)\nStatus: active\n","color":"#FFCFCF","shape":"box","font":{ "align": "left", "multi":"md" }},
+    {"id":"017","size":170,"label":"*CareLocation**\n(ValueSet)\nStatus: draft\n","color":"#CFFFCF","shape":"box","font":{ "align": "left", "multi":"md" }},
+    {"id":"018","size":170,"label":"*CareLocation**\n(CodeSystem)\nStatus: draft\n","color":"#CFFFFF","shape":"box","font":{ "align": "left", "multi":"md" }},
+    {"id":"019","size":170,"label":"*VaccinationConfirmationStatus**\n(ValueSet)\nStatus: draft\n","color":"#CFFFCF","shape":"box","font":{ "align": "left", "multi":"md" }}
+  ]

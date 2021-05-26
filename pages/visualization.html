@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>RoadMap Information - Visualization</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../dist/js/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../dist/css/main.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1>RoadMap Information</h1>
+            <p>A visualization of the current roadmap.</p>
+        </div>
+
+        <div class="navbar">
+            <a href="../index.html">Home</a>
+            <a href="../pages/table.html">Table</a>
+            <a href="../pages/visualization.html" class="active">Visualization</a>
+        </div>
+
+        <div class="row">
+            <div class="side">
+                <label for="nodeFilterSelect">Resource Types</label>
+                <br />
+                <div class="custom-select" style="width:200px;">
+                    <select id="nodeFilterSelect">
+                        <option value="">All</option>
+                    </select>
+                </div>
+                <br />
+                <label for="nodeFilterSelect">Group</label>
+                <br />
+                <div class="custom-select" style="width:200px;">
+                    <select id="nodeFilterSelect">
+                        <option value="">Vaccination</option>
+                    </select>
+                </div>
+                <br />
+                <label>Relations</label>
+                <br />
+                <br />
+                <br />
+                <br />
+                <div>
+                    <label>
+                    <input type="checkbox" name="edgesFilter" value="binding_req" checked />
+                    Is <span style="color: green">Binding (Req)</span> of
+                    </label>
+                </div>                    
+                <div>
+                    <label>
+                    <input type="checkbox" name="edgesFilter" value="binding_ext" checked />
+                    Is <span style="color: rgb(2, 75, 26)">Binding (Ext)</span> of
+                    </label>
+                </div>                    
+                <div>
+                    <label>
+                    <input type="checkbox" name="edgesFilter" value="binding_pref" checked />
+                    Is <span style="color: rgb(134, 206, 134)">Binding (Pref)</span> of
+                    </label>
+                </div>
+                <div>
+                    <label>
+                    <input type="checkbox" name="edgesFilter" value="binding_exm" checked />
+                    Is <span style="color: rgb(169, 206, 169)">Binding (Examp)</span> of
+                    </label>
+                </div>                    
+                <div>
+                    <label>
+                    <input type="checkbox" name="edgesFilter" value="extension" checked />
+                    Is <span style="color: rgb(195, 255, 0)">Extension</span> of
+                    </label>    
+                </div>                    
+                <div>
+                    <label>
+                    <input type="checkbox" name="edgesFilter" value="contains" checked />
+                    Is <span style="color: rgb(73, 13, 126)">Contains</span> of
+                    </label>                                
+                </div>
+                <div>
+                    <label>
+                    <input type="checkbox" name="edgesFilter" value="values_from" checked />
+                    Is <span style="color: blue">Values From</span> of
+                    </label>
+                </div>                    
+                <div>
+                    <label>
+                    <input type="checkbox" name="edgesFilter" value="system" checked />
+                    Is <span style="color: red">System</span> of
+                    </label>
+                </div>
+            </div>
+            <div class="main">
+                <h1>Artifacts</h1>
+                <div id="mynetwork">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>© 2021 HL7 Belgium</p>
+        </div>
+        <script src="../dist/js/vis.js"></script>
+        <script src="../dist/js/vis-network.js"></script>
+        <script src="../dist/js/visualization.js"></script>
+    </body>
+</html>
