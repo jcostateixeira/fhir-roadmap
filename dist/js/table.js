@@ -3,6 +3,8 @@ $(document).ready( function () {
     var table = $('#example').DataTable({
             lengthMenu: [ [20, 50, 100, -1], [20, 50, 100, "All"] ],
             pageLength: 50,
+            orderCellsTop: true,
+            fixedHeader: true,
             "ajax": "../data/data.json",
                 "columns": [
                     { "data": "id" },
