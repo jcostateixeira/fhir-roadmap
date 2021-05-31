@@ -10,9 +10,9 @@
   
   /* Header/logo Title */
   .header {
-    padding: 20px;
+    padding: 3px 20px 3px 20px;
     text-align: center;
-    background: #da6a14b9;
+    background: white;
     color: white;
   }
   
@@ -24,7 +24,7 @@
   /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
   .navbar {
     overflow: hidden;
-    background-color: #333;
+    background-color: #ad1f2f;
     position: sticky;
     position: -webkit-sticky;
     top: 0;
@@ -51,16 +51,18 @@
   
   /* Change color on hover */
   .navbar a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #790713;
+    color: #fffff0;
   }
   
   /* Active/current link */
   .navbar a.active {
-    background-color: #666;
+    background-color: #da0c23;
     color: white;
   }
-  
+
+  #container{width:100%;}
+
   /* Column container */
   .row {  
     display: -ms-flexbox; /* IE10 */
@@ -83,7 +85,7 @@
     -ms-flex: 80%; /* IE10 */
     flex: 80%;
     background-color: white;
-    padding: 25px;
+    padding: 5px 25px 5px 25px;
   }
    
   /* Footer */
@@ -187,3 +189,15 @@
 .select-items div:hover, .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
 } 
+
+#container{width:100%;}
+#left{float:left;width:100px;margin-left: 17px;}
+#right{float:right;width:100px;margin-right: 210px;}
+#center{margin:0 auto;width:800px;color: maroon; text-align: center;}
+
+#version::after
+{
+  content: "May 2021";
+}
+
+.dataTables_filter input { width: 50px }

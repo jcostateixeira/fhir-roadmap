@@ -5,17 +5,29 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="../dist/js/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+        <script type="text/javascript" charset="utf8" src="../dist/js/jquery.dataTables.js"></script>
+        <script src="../dist/js/select2.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../dist//css/jquery.dataTables.min.css">
         <link rel="stylesheet" type="text/css" href="../dist/css/main.css">
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">
+        <link rel="stylesheet" type="text/css" href="../dist//css/select2.min.css">
     </head>
     <body>
         <div class="header">
-            <h1>RoadMap Information</h1>
-            <p>A visualization of the current roadmap.</p>
+            <div id="container">
+            <div id="left">
+                <a id="hl7-logo" no-external="true" href="https://hl7belgium.org" target="_blank">
+                    <img height="85" alt="HL7 Belgium" src="../images/hl7be-logo-header.png"/>
+                </a>
+            </div>
+            <div id="right">
+                <a id="fhir-logo" no-external="true" href="http://hl7.org/fhir"><img height="70" alt="Visit the FHIR website" src="../images/fhir-logo-www.png"/> </a>
+            </div>
+            <div id="center">
+                <h2>HL7 Belgium - FHIR Roadmap and implementation</h2><p id="version"> </p> <!-- change the version in the main.css-->
+            </div>
         </div>
+    </div>
+
 
         <div class="navbar">
             <a href="../index.html">Home</a>
@@ -25,25 +37,27 @@
 
         <div class="row">
             <div class="main">
-                <h2>Table Data Content</h2>
+                <h2 style="text-align: center;margin-top: 7px;margin-bottom: 7px;">List of FHIR artefacts</h2>
                 <table id="example" class="display" style="width:100%">
                     <thead>
                         <tr>
-                            <th>id</th>
-                            <th>topic</th>
-                            <th>type</th>
-                            <th>name</th>
-                            <th>status</th>
-                            <th>date_pc</th>
-                            <th>legal</th>
-                            <th>maturity</th>
-                            <th>published</th>
+                            <th>#</th>
+                            <th>Topic</th>
+                            <th>Sub-topic</th>
+                            <th>Type</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Public Comment Date</th>
+                            <th>Legal Status</th>
+                            <th>Maturity</th>
+                            <th>Published</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>id</th>
                             <th>topic</th>
+                            <th>subtopic</th>
                             <th>type</th>
                             <th>name</th>
                             <th>status</th>

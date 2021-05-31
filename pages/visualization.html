@@ -6,12 +6,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="../dist/js/jquery-3.6.0.min.js"></script>
         <link rel="stylesheet" type="text/css" href="../dist/css/main.css">
+
     </head>
     <body>
         <div class="header">
-            <h1>RoadMap Information</h1>
-            <p>A visualization of the current roadmap.</p>
+            <div id="container">
+            <div id="left">
+                <a id="hl7-logo" no-external="true" href="https://hl7belgium.org" target="_blank">
+                    <img height="85" alt="HL7 Belgium" src="../images/hl7be-logo-header.png"/>
+                </a>
+            </div>
+            <div id="right">
+                <a id="fhir-logo" no-external="true" href="http://hl7.org/fhir"><img height="70" alt="Visit the FHIR website" src="../images/fhir-logo-www.png"/> </a>
+            </div>
+            <div id="center">
+                <h2>HL7 Belgium - FHIR Roadmap and implementation</h2><p id="version"> </p> <!-- change the version in the main.css-->
+            </div>
         </div>
+    </div>
+
 
         <div class="navbar">
             <a href="../index.html">Home</a>

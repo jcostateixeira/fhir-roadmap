@@ -5,6 +5,7 @@ $(document).ready( function () {
                 "columns": [
                     { "data": "id" },
                     { "data": "topic" },
+                    { "data": "subtopic" },
                     { "data": "type" },
                     { "data": "name" },
                     { "data": "status" },
