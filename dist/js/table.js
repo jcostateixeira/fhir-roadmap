@@ -13,11 +13,13 @@ $(document).ready( function () {
                     { "data": "type" },
                     { "data": "name" },
                     { "data": "status" },
-                    { "data": "date_pc" },
+                    { "data": "date_started" },
+                    { "data": "date_published" },
+                    { "data": "date_reviewed" },
                     { "data": "maturity" },
                     { "data": "legal" },
-                    { "data": "published" }
-                ],
+                    { "data": "version" }
+                  ],
               initComplete: function () {
               count = 0;
               this.api().columns().every( function () {
