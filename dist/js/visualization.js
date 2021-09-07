@@ -1,6 +1,7 @@
 //$(document).ready( function () {
 const nodeFilterSelector = document.getElementById("nodeFilterSelect");
 const edgeFilters = document.getElementsByName("edgesFilter");
+const nodeFilterSelector2 = document.getElementById("nodeFilterSelect2");
 
 function startNetwork(data) {
   const container = document.getElementById("mynetwork");
@@ -64,8 +65,20 @@ const nodesFilter = (node) => {
       return node.type === "Transaction";
     case "Questionnaire":
       return node.type === "Questionnaire";
-      case "NamingSystem":
-        return node.type === "NamingSystem";
+    case "Vaccination":
+      return node.topic === "Vaccination";
+    case "Core":
+      return node.topic === "Core";
+    case "Terminology":
+      return node.topic === "Terminology";
+    case "Addiction":
+      return node.topic === "Addiction";
+    case "Problem":
+      return node.topic === "Problem";
+    case "Medication":
+      return node.topic === "Medication";
+    case "Allergy / Intolerance":
+      return node.topic === "Allergy / Intolerance";
     default:
       return true;
   }
@@ -94,6 +107,16 @@ const nodesView = new vis.DataView(_nodes, { filter: nodesFilter });
 const edgesView = new vis.DataView(_edges, { filter: edgesFilter });
 
 nodeFilterSelector.addEventListener("change", (e) => {
+  // set new value to filter variable
+  nodeFilterValue = e.target.value;
+  /*
+  refresh DataView,
+  so that its filter function is re-calculated with the new variable
+*/
+  nodesView.refresh();
+});
+
+nodeFilterSelector2.addEventListener("change", (e) => {
   // set new value to filter variable
   nodeFilterValue = e.target.value;
   /*
