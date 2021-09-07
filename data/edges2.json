@@ -163,5 +163,5 @@
 {"from": "071", "to": "079", "relation": "valueset", "label": "ValueSet", "arrows": {"to": {"enabled": "true", "type": "curve"}}, "color": {"color": "#400000"}},
 {"from": "071", "to": "080", "relation": "codesystem", "label": "CodeSystem", "arrows": {"to": {"enabled": "true", "type": "curve"}}, "color": {"color": "#400000"}},
 {"from": "082", "to": "081", "relation": "logicalmodel", "label": "LogicalModel", "arrows": {"to": {"enabled": "true", "type": "curve"}}, "color": {"color": "#400000"}},
-{"from": "084", "to": "083", "relation": "logicalmodel", "label": "LogicalModel", "arrows": {"to": {"enabled": "true", "type": "curve"}}, "color": {"color": "#400000"}}
+{"from": "084", "to": "083", "relation": "logicalmodel", "label": "LogicalModel", "arrows": {"to": {"enabled": "true", "type": "curve"}}, "color": {"color": "#400000"}},
 ]

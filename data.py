@@ -1,4 +1,6 @@
 import json
+import pandas as pd
+
 
 root_nodes=[]
 final_list=[]
@@ -41,7 +43,7 @@ for element in final_list:
 f.write("]")
 f.close()
 
-
+edge_info={"extension":("extension","Extension"),"LogicalModel":("logical_model_from","Model from"),"system":("system","System")}
 for root in root_nodes:
     for element in data["data"]:
         if element["topic"]==root["topic"] and element["id"]!=root["id"]:
@@ -53,3 +55,8 @@ for element in final_edges:
     f.write(json.dumps(element).replace("\\u00a0"," ") + ",\n")
 f.write("]")
 f.close()
+
+df = pd.DataFrame(data["data"])
+
+
+df.to_csv("data.csv")
