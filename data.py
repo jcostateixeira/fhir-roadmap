@@ -24,7 +24,11 @@ for element in data["data"]:
     res["shape"]="box"
     res["font"]={ "align": "left", "multi":"md" }
     res["color"]=colors[element["type"]]
-    res["label"]="**"+element["name"]+"**\nStatus"+element["status"]
+    if element["status"]=="":
+        status="draft"
+    else:
+        status=element["status"]
+    res["label"]="*"+element["name"]+"**\n"+element["type"]+"\nStatus: "+status
     if element["type"]=="Profile":
         root_nodes.append({"id":element["id"],"topic":element["topic"]})
     final_list.append(res)
@@ -41,7 +45,7 @@ f.close()
 for root in root_nodes:
     for element in data["data"]:
         if element["topic"]==root["topic"] and element["id"]!=root["id"]:
-            final_edges.append({  "from": root["id"],"to": element["id"], "relation":element["type"].lower(), "label": element["type"],"arrows": {"to":{ "enabled": "true","type":"curve"} },"color": { "color": "#400000" }})
+            final_edges.append({"from": root["id"],"to": element["id"], "relation":element["type"].lower(), "label": element["type"],"arrows": {"to":{ "enabled": "true","type":"curve"} },"color": { "color": "#400000" }})
 
 f = open("data/edges2.json", "w")
 f.write("[")
