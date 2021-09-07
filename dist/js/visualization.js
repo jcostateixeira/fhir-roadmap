@@ -6,10 +6,10 @@ function startNetwork(data) {
   const container = document.getElementById("mynetwork");
   const options = {
     edges: {
-//           length: 400 // Longer edges between nodes.
+      //           length: 400 // Longer edges between nodes.
     },
     physics: {
-    // Even though it's disabled the options still apply to network.stabilize().
+      // Even though it's disabled the options still apply to network.stabilize().
       enabled: true,
       solver: "repulsion",
       repulsion: {
@@ -18,7 +18,7 @@ function startNetwork(data) {
     }
   };
   new vis.Network(container, data, options);
-//  network.stabilize();
+  //  network.stabilize();
 }
 
 /**
@@ -50,14 +50,22 @@ const nodesFilter = (node) => {
     return true;
   }
   switch (nodeFilterValue) {
-    case "kid":
-      return node.age === "kid";
-    case "adult":
-      return node.age === "adult";
-    case "male":
-      return node.gender === "male";
-    case "female":
-      return node.gender === "female";
+    case "Profile":
+      return node.type === "Profile";
+    case "Extension":
+      return node.type === "Extension";
+    case "CodeSystem":
+      return node.type === "CodeSystem";
+    case "ValueSet":
+      return node.type === "ValueSet";
+    case "LogicalModel":
+      return node.type === "LogicalModel";
+    case "Transaction":
+      return node.type === "Transaction";
+    case "Questionnaire":
+      return node.type === "Questionnaire";
+      case "NamingSystem":
+        return node.type === "NamingSystem";
     default:
       return true;
   }
@@ -71,12 +79,12 @@ var data = {
   edges: _edges,
 };
 
-$.getJSON('../data/edges.json', function(edges) {
+$.getJSON('../data/edges.json', function (edges) {
   _edges.add(edges);
 });
-$.getJSON('../data/nodes.json', function(nodes) {
- _nodes.add(nodes);
-});  
+$.getJSON('../data/nodes.json', function (nodes) {
+  _nodes.add(nodes);
+});
 
 const edgesFilter = (edge) => {
   return edgesFilterValues[edge.relation];
@@ -126,32 +134,32 @@ for (i = 0; i < l; i++) {
     create a new DIV that will act as an option item: */
     c = document.createElement("DIV");
     c.innerHTML = selElmnt.options[j].innerHTML;
-    c.addEventListener("click", function(e) {
-        /* When an item is clicked, update the original select box,
-        and the selected item: */
-        var y, i, k, s, h, sl, yl;
-        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-        sl = s.length;
-        h = this.parentNode.previousSibling;
-        for (i = 0; i < sl; i++) {
-          if (s.options[i].innerHTML == this.innerHTML) {
-            s.selectedIndex = i;
-            h.innerHTML = this.innerHTML;
-            y = this.parentNode.getElementsByClassName("same-as-selected");
-            yl = y.length;
-            for (k = 0; k < yl; k++) {
-              y[k].removeAttribute("class");
-            }
-            this.setAttribute("class", "same-as-selected");
-            break;
+    c.addEventListener("click", function (e) {
+      /* When an item is clicked, update the original select box,
+      and the selected item: */
+      var y, i, k, s, h, sl, yl;
+      s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+      sl = s.length;
+      h = this.parentNode.previousSibling;
+      for (i = 0; i < sl; i++) {
+        if (s.options[i].innerHTML == this.innerHTML) {
+          s.selectedIndex = i;
+          h.innerHTML = this.innerHTML;
+          y = this.parentNode.getElementsByClassName("same-as-selected");
+          yl = y.length;
+          for (k = 0; k < yl; k++) {
+            y[k].removeAttribute("class");
           }
+          this.setAttribute("class", "same-as-selected");
+          break;
         }
-        h.click();
+      }
+      h.click();
     });
     b.appendChild(c);
   }
   x[i].appendChild(b);
-  a.addEventListener("click", function(e) {
+  a.addEventListener("click", function (e) {
     /* When the select box is clicked, close any other select boxes,
     and open/close the current select box: */
     e.stopPropagation();
@@ -185,4 +193,4 @@ function closeAllSelect(elmnt) {
 
 /* If the user clicks anywhere outside the select box,
 then close all select boxes: */
-document.addEventListener("click", closeAllSelect); 
+document.addEventListener("click", closeAllSelect);
