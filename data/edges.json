@@ -18,5 +18,7 @@
     {  "from": "016","to": "017", "relation":"binding_req", "label": "Bound (Req)","arrows": {"to":{ "enabled": true,"type":"arrow"} },"color": { "color": "#000000" }},
     {  "from": "017","to": "018", "relation":"values_from", "label": "Values from","arrows": {"to":{ "enabled": true,"type":"crow"} },"color": { "color": "#404000" }},
     {  "from": "010","to": "019", "relation":"binding_req", "label": "Bound (Req)","arrows": {"to":{ "enabled": true,"type":"arrow"} },"color": { "color": "#000000" }},
-    {  "from": "019","to": "002", "relation":"values_from", "label": "Values from","arrows": {"to":{ "enabled": true,"type":"crow"} },"color": { "color": "#404000" }}
+    {  "from": "019","to": "002", "relation":"values_from", "label": "Values from","arrows": {"to":{ "enabled": true,"type":"crow"} },"color": { "color": "#404000" }},
+    {  "from": "001","to": "020", "relation":"logical_model_from", "label": "Model from","arrows": {"to":{ "enabled": true,"type":"crow"} },"color": { "color": "#404000" }}
+
   ]

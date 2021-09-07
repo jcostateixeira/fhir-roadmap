@@ -95,7 +95,7 @@ var data = {
 $.getJSON('../data/edges.json', function (edges) {
   _edges.add(edges);
 });
-$.getJSON('../data/nodes.json', function (nodes) {
+$.getJSON('../data/nodes2.json', function (nodes) {
   _nodes.add(nodes);
 });
 
