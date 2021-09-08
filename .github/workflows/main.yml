@@ -22,6 +22,7 @@ jobs:
         run: |
           rm data/nodes.json
           rm data/edges.json
+          rm data/data.json
           
       - name: install python packages
         run: |
