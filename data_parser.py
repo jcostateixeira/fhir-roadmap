@@ -5,7 +5,7 @@ import pandas as pd
 nodes_list=[]
 edges_list=[]
 def create_edges(element,relation_list,relationship_type_list,sep="|"):
-    edge_info={"transaction":("transaction","Transaction From","diamond","#404040"),"questionnaire":("questionnaire","Questionnnaire From","diamond","#404040"),"namingsystem":("system","System","diamond", "#404040" ),"codesystem":("values_from","Values from","crow", "#404000" ),"valueset":("binding_req","Bound (Req)","arrow", "#000000"),"extension":("extension","Extension","curve", "#400000" ),"logicalmodel":("logical_model_from","Model from","arrow", "#000000"),"system":("system","System","diamond", "#404040" )}
+    edge_info={"transaction":("transaction","Transaction From","bar","#404040"),"questionnaire":("questionnaire","Questionnnaire From","bar","#404040"),"namingsystem":("system","System","diamond", "#404040" ),"codesystem":("values_from","Values from","arrow", "#404000" ),"valueset":("binding_req","Bound (Req)","arrow", "#000000"),"extension":("extension","Extension","curve", "#400000" ),"logicalmodel":("logical_model_from","Model from","arrow", "#000000"),"system":("system","System","diamond", "#404040" )}
 
     if len(relation_list)==0:
         return None
@@ -50,10 +50,10 @@ def get_data_and_create_node(datafile="data.csv"):
             nodes_list.append(res)
 
 
-    with open("data/nodes3.json", "w") as fout:
+    with open("data/nodes.json", "w") as fout:
         json.dump(nodes_list, fout)
 
-    with open("data/edges3.json", "w") as fout:
+    with open("data/edges.json", "w") as fout:
         json.dump(edges_list, fout)
 
 get_data_and_create_node()
