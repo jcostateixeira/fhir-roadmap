@@ -37,7 +37,7 @@ const edgesFilterValues = {
   contains: true,
   values_from: true,
   system: true,
-
+  logical_model_from: true,
 
 
 };
