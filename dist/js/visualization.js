@@ -3,6 +3,8 @@ const nodeFilterSelector = document.getElementById("nodeFilterSelect");
 const edgeFilters = document.getElementsByName("edgesFilter");
 const nodeFilterSelector2 = document.getElementById("nodeFilterSelect2");
 
+
+
 function startNetwork(data) {
   const container = document.getElementById("mynetwork");
   const options = {
@@ -27,6 +29,13 @@ function startNetwork(data) {
  * in order to apply filters to new values, DataView.refresh() should be called
  */
 let nodeFilterValue = "";
+let params = new URLSearchParams(location.search);
+
+if (params.get("topic") != "") {
+  nodeFilterValue = params.get("topic");
+
+}
+
 const edgesFilterValues = {
   binding_req: true,
   binding_req: true,
