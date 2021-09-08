@@ -19,10 +19,9 @@ $(document).ready(function () {
       { "data": "maturity" },
       { "data": "legal" },
       { "data": "version" },
-      {
-        "data": "topic", render: function (data) {
+      { "data": "topic", render: function (data) {
           console.log(data)
-          return '<form action="visualization.html?topic=' + data + '"><input type=\"submit\" value=\"Topic\"/></form>';
+          return '<a class="button" href="visualization.html?topic=' + data + '">Topic</a>';
         }
       }
     ],
