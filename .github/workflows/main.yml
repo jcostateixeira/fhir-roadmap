@@ -18,13 +18,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.7.7' # install the python version needed
-          
-      - name: Delete old files
-        run: |
-          rm  data/nodes.json
-          rm  data/edges.json
-          rm  data/data.json
-          ls data
+
           
       - name: install python packages
         run: |
@@ -39,7 +33,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
-          git commit -m "create nodes and edges" -a
+          git diff --quiet && git diff --staged --quiet || git commit -m "create nodes and edges" -a
           
       - name: push changes
         uses: ad-m/github-push-action@v0.6.0
