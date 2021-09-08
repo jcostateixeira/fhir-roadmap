@@ -16,7 +16,7 @@ def create_edges(element,relation_list,relationship_type_list,sep="|"):
         r_label=edge_info[element["type"].lower()][1]
         arrows=edge_info[element["type"].lower()][2]
         arrow_color=edge_info[element["type"].lower()][3]
-        edge={"from": node,"to": element["id"], "relation":r, "label": r_label,"arrows": {"to":{ "enabled": "true","type":arrows} },"color": { "color": arrow_color }}
+        edge={"from": node,"to": element["id"], "relation":r, "label": r_label,"arrows": {"to":{ "enabled": True,"type":arrows} },"color": { "color": arrow_color }}
         edges_list.append(edge)
 
 
