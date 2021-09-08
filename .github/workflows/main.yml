@@ -2,8 +2,9 @@ name: Create Data
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - 'data.csv'
+      - 'data_parser.py'
 
 jobs:
   build:
