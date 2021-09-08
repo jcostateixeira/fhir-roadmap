@@ -23,6 +23,7 @@ jobs:
           rm -f data/nodes.json
           rm -f data/edges.json
           rm -f data/data.json
+          mkdir data
           
       - name: install python packages
         run: |
