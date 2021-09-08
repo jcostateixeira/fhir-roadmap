@@ -24,7 +24,6 @@ jobs:
           rm  data/nodes.json
           rm  data/edges.json
           rm  data/data.json
-          mkdir data
           ls
           
       - name: install python packages
