@@ -1,9 +1,12 @@
 import json
 import pandas as pd
 
-edge_info={"transaction":("transaction","Transaction From","diamond","#404040"),"questionnaire":("questionnaire","Questionnnaire From","diamond","#404040"),"namingsystem":("system","System","diamond", "#404040" ),"codesystem":("values_from","Values from","crow", "#404000" ),"valueset":("binding_req","Bound (Req)","arrow", "#000000"),"extension":("extension","Extension","curve", "#400000" ),"logicalmodel":("logical_model_from","Model from","arrow", "#000000"),"system":("system","System","diamond", "#404040" )}
 
+nodes_list=[]
+edges_list=[]
 def create_edges(element,relation_list,relationship_type_list,sep="|"):
+    edge_info={"transaction":("transaction","Transaction From","diamond","#404040"),"questionnaire":("questionnaire","Questionnnaire From","diamond","#404040"),"namingsystem":("system","System","diamond", "#404040" ),"codesystem":("values_from","Values from","crow", "#404000" ),"valueset":("binding_req","Bound (Req)","arrow", "#000000"),"extension":("extension","Extension","curve", "#400000" ),"logicalmodel":("logical_model_from","Model from","arrow", "#000000"),"system":("system","System","diamond", "#404040" )}
+
     if len(relation_list)==0:
         return None
     relation=relation_list.split(sep)
@@ -17,41 +20,40 @@ def create_edges(element,relation_list,relationship_type_list,sep="|"):
         edges_list.append(edge)
 
 
+def get_data_and_create_node(datafile="data.csv"):
+    data=pd.read_csv(datafile,encoding="iso8859_1",sep=";",keep_default_na=False)
 
-data=pd.read_csv("data.csv",encoding="latin_1",sep=";",keep_default_na=False)
+    colors={"Transaction":"#008080","Questionnaire":"#AD97EC","DataType":"#83986B","Profile":"#CFCFCF","CodeSystem":"#CFFFFF","ValueSet":"#CFFFCF","Extension":"#FFCFCF","NamingSystem":"#FFCFFF","LogicalModel":"#87BEEF"}
 
-nodes_list=[]
-edges_list=[]
-colors={"Transaction":"#008080","Questionnaire":"#AD97EC","DataType":"#83986B","Profile":"#CFCFCF","CodeSystem":"#CFFFFF","ValueSet":"#CFFFCF","Extension":"#FFCFCF","NamingSystem":"#FFCFFF","LogicalModel":"#87BEEF"}
+    for idx,element in data.iterrows():
+    #  if element["topic"]=="Vaccination": #test only
+            res={}
+            
+        #  print(element["topic"])
+            res["id"]=element["id"]
 
-for idx,element in data.iterrows():
-  #  if element["topic"]=="Vaccination": #test only
-        res={}
-        
-    #  print(element["topic"])
-        res["id"]=element["id"]
-        res["topic"]=element["topic"]
-        res["subtopic"]=element["subtopic"]
-        res["name"]=element["name"]
-        res["type"]=element["type"]
-        res["status"]=element["status"]
-        res["size"]=170
-        res["shape"]="box"
-        res["font"]={ "align": "left", "multi":"md" }
-        res["color"]=colors[element["type"]]
-        if element["status"]=="":
-            status="draft"
-        else:
-            status=element["status"]
-        res["label"]="*"+element["name"]+"**\n"+element["type"]+"\nStatus: "+status
-        create_edges(element,element["relation"],element["relation_type"])
-        nodes_list.append(res)
-
+            res["topic"]=element["topic"]
+            res["subtopic"]=element["subtopic"]
+            res["name"]=element["name"]
+            res["type"]=element["type"]
+            res["status"]=element["status"]
+            res["size"]=170
+            res["shape"]="box"
+            res["font"]={ "align": "left", "multi":"md" }
+            res["color"]=colors[element["type"]]
+            if element["status"]=="":
+                status="draft"
+            else:
+                status=element["status"]
+            res["label"]="*"+element["name"]+"**\n"+element["type"]+"\nStatus: "+status
+            create_edges(element,element["relation"],element["relation_type"])
+            nodes_list.append(res)
 
 
-with open("data/nodes3.json", "w") as fout:
-    json.dump(nodes_list, fout)
+    with open("data/nodes3.json", "w") as fout:
+        json.dump(nodes_list, fout)
 
-with open("data/edges3.json", "w") as fout:
-    json.dump(edges_list, fout)
+    with open("data/edges3.json", "w") as fout:
+        json.dump(edges_list, fout)
 
+get_data_and_create_node()

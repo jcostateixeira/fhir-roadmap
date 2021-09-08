@@ -38,7 +38,8 @@ const edgesFilterValues = {
   values_from: true,
   system: true,
   logical_model_from: true,
-
+  transaction: true,
+  questionnaire: true
 
 };
 
@@ -77,12 +78,21 @@ const nodesFilter = (node) => {
       return node.topic === "Problem";
     case "Medication":
       return node.topic === "Medication";
-    case "Allergy / Intolerance":
-      return node.topic === "Allergy / Intolerance";
+    case "Allergy_Intolerance":
+      return node.topic === "Allergy_Intolerance";
+    case "Home_Care":
+      return node.topic === "Home_Care";
+    case "Patient_Will":
+      return node.topic === "Patient_Will";
+    case "Score_Result":
+      return node.topic === "Score_Result";
+    case "Referral_Prescription":
+      return node.topic === "Referral_Prescription";
     default:
       return true;
   }
 };
+
 var _nodes = new vis.DataSet();
 var _edges = new vis.DataSet();
 
