@@ -5,7 +5,7 @@ import pandas as pd
 nodes_list=[]
 edges_list=[]
 def create_edges(element,relation_list,relationship_type_list,sep="|"):
-    edge_info={"transaction":("transaction","Transaction From","bar","#404040"),"questionnaire":("questionnaire","Questionnnaire From","bar","#404040"),"namingsystem":("system","System","diamond", "#404040" ),"codesystem":("values_from","Values from","arrow", "#404000" ),"valueset":("binding_req","Bound (Req)","arrow", "#000000"),"extension":("extension","Extension","curve", "#400000" ),"logicalmodel":("logical_model_from","Model from","arrow", "#000000"),"system":("system","System","diamond", "#404040" )}
+    edge_info={"transaction":("transaction","Transaction From","bar","#7a8989"),"questionnaire":("questionnaire","Questionnnaire From","bar","#404040"),"namingsystem":("system","System","diamond", "#404040" ),"codesystem":("values_from","Values from","arrow", "#404000" ),"valueset":("binding_req","Bound (Req)","arrow", "#000000"),"extension":("extension","Extension","curve", "#400000" ),"logicalmodel":("logical_model_from","Model from","arrow", "#000000"),"system":("system","System","diamond", "#404040" )}
 
     if len(relation_list)==0:
         return None

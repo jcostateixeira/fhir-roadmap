@@ -66,6 +66,7 @@ const nodesFilter = (node) => {
       return node.type === "Transaction";
     case "Questionnaire":
       return node.type === "Questionnaire";
+      
     case "Vaccination":
       return node.topic === "Vaccination";
     case "Core":
