@@ -4,6 +4,8 @@ import pandas as pd
 
 nodes_list=[]
 edges_list=[]
+final_data={"data":[]}
+
 def create_edges(element,relation_list,relationship_type_list,sep="|"):
     edge_info={"transaction":("transaction","Transaction From","bar","#7a8989"),"questionnaire":("questionnaire","Questionnnaire From","bar","#453C5E"),"namingsystem":("system","System","diamond", "#404040" ),"codesystem":("values_from","Values from","arrow", "#404000" ),"valueset":("binding_req","Bound (Req)","arrow", "#000000"),"extension":("extension","Extension","curve", "#400000" ),"logicalmodel":("logical_model_from","Model from","arrow", "#000000"),"system":("system","System","diamond", "#404040" )}
 
@@ -56,7 +58,6 @@ def get_data_and_create_node(datafile="data.csv"):
     with open("data/edges.json", "w") as fout:
         json.dump(edges_list, fout)
 
-    final_data={"data":[]}
     final_data["data"]=data.to_dict(orient="records")
     with open("data/data.json", "w") as fout:
         json.dump(final_data, fout)
