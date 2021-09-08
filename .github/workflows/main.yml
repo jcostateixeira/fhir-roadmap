@@ -20,9 +20,9 @@ jobs:
           
       - name: Delete old files
         run: |
-          rm -f data/nodes.json
-          rm -f data/edges.json
-          rm -f data/data.json
+          rm  data/nodes.json
+          rm  data/edges.json
+          rm  data/data.json
           mkdir data
           
       - name: install python packages
