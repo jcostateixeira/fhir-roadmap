@@ -1,7 +1,7 @@
 import json
 import pandas as pd
 
-edge_info={"namingsystem":("system","System","diamond", "#404040" ),"codesystem":("values_from","Values from","crow", "#404000" ),"valueset":("binding_req","Bound (Req)","arrow", "#000000"),"extension":("extension","Extension","curve", "#400000" ),"logicalmodel":("logical_model_from","Model from","arrow", "#000000"),"system":("system","System","diamond", "#404040" )}
+edge_info={"transaction":("transaction","Transaction From","diamond","#404040"),"questionnaire":("questionnaire","Questionnnaire From","diamond","#404040"),"namingsystem":("system","System","diamond", "#404040" ),"codesystem":("values_from","Values from","crow", "#404000" ),"valueset":("binding_req","Bound (Req)","arrow", "#000000"),"extension":("extension","Extension","curve", "#400000" ),"logicalmodel":("logical_model_from","Model from","arrow", "#000000"),"system":("system","System","diamond", "#404040" )}
 
 def create_edges(element,relation_list,relationship_type_list,sep="|"):
     if len(relation_list)==0:
@@ -25,7 +25,7 @@ edges_list=[]
 colors={"Transaction":"#008080","Questionnaire":"#AD97EC","DataType":"#83986B","Profile":"#CFCFCF","CodeSystem":"#CFFFFF","ValueSet":"#CFFFCF","Extension":"#FFCFCF","NamingSystem":"#FFCFFF","LogicalModel":"#87BEEF"}
 
 for idx,element in data.iterrows():
-    if element["topic"]=="Vaccination":
+  #  if element["topic"]=="Vaccination": #test only
         res={}
         
     #  print(element["topic"])
