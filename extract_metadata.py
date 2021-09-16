@@ -1,14 +1,14 @@
 import os, json
 import pandas as pd
+import glob
 
 
-# 1. Get the resources.csv - if it exists
-if os.path.exists('resources.csv'):
-    df = pd.read_csv('resources.csv', sep =';', header=0).to_dict(orient="records")
-
-# 1.1 if not, create a new data frame
-else:
-    df = pd.DataFrame(columns=['url','id', 'rtype', 'name', 'version', 'date', 'status']).to_dict
+def create_current_df(path):
+    if os.path.exists(path):
+        df = pd.read_csv(path, sep =';', header=0).to_dict(orient="records")
+        return df
+    else:
+        return None
 
 # CSV structure: 
 # idx (autoincrement index)
@@ -28,81 +28,75 @@ else:
 # Version.
 
 
-# 2. read json files from packages - each package is a folder under packages folder
-path_to_json = 'package/' # TO DO: instead of reading the folder package, repeat for all folders within packages/ folder
-json_files = [pos_json for pos_json in os.listdir(path_to_json) if pos_json.endswith('.json')]
+def read_package(folder):
+    # 2. read json files from packages - each package is a folder under packages folder
+    new_files=[]
+    # r=root, d=directories, f = files
+    for r, d, f in os.walk(folder):
+        for file in f:
+            if file.endswith(".json"):
+                new_files.append(os.path.join(r, file))
 
-for index, js in enumerate(json_files):
-    if (js == 'package.json'):
-        with open(os.path.join(path_to_json, js), encoding='utf-8') as json_file:
-            json_text = json.load(json_file)
+    result=[]
+    record_upper={}
+    for index, js in enumerate(new_files):
+        if (js == 'packages/package.json'):
+            with open(js, encoding='utf-8') as json_file:
+                json_text = json.load(json_file)
+             #   print(json_text)
+                date = '1900' # set a old date to initialize variable and then overwrite as needed
+                if('date' in json_text):
+                    record_upper["pack_last_review_date"] = json_text['date']
+                if('author' in json_text):
+                    record_upper["pack_author"] = json_text['author']
+                if('fhirVersion' in json_text) and (len(json_text['fhirVersion']) == 1) :
+                    record_upper["pack_fhir_version"] = json_text['fhirVersion']
+                
+                if('maintainers' in json_text):
+                    for m in json_text['maintainers']:
+                        if ('url' in m):
+                            record_upper["pack_wg_url"] = m['url']
+    #print(record_upper)
+    for index, js in enumerate(new_files):
+        print(js)
+        if  not any(ext in js for ext in ['package-list.json',".index.json",'package.json',"validation-summary","example"]):   # for all other jsons:
+         
+            with open(js, encoding='utf-8') as json_file:
+                 #  print(js)
+                record=record_upper.copy()
+                
+                json_text = json.load(json_file)
+               # print(json_text)
+             #   print("----")
+                # get the rtype (resource type) and dtype (actual detailed type)
+                rtype = json_text['resourceType']
 
-            date = '1900' # set a old date to initialize variable and then overwrite as needed
-            if('date' in json_text):
-                pack_last_review_date = json_text['date']
-            if('author' in json_text):
-                pack_author = json_text['author']
-            if('fhirVersion' in json_text) and (len(json_text['fhirVersion']) == 1) :
-                pack_fhir_version = json_text['fhirVersion']
-            
-            if('maintainers' in json_text):
-                for m in json_text['maintainers']:
-                    if ('url' in m):
-                         pack_wg_url = m['url']
-             
-            
-    elif (js == 'package-list.json'):
-         # TO DO: do NOT process package-list.json
-        print('') # do nothing ?
+                record["id"]= json_text.get('id')
 
-    else:   # for all other jsons:
-        with open(os.path.join(path_to_json, js), encoding='utf-8') as json_file:
-            json_text = json.load(json_file)
+                if (rtype=="StructureDefinition"):
+                    if (json_text['kind']=='logical'): # in this case, this is a logical model
+                        record["dtype"]="Logical Model"
+                    if (json_text['type']=='extension'): # in this case, it's an  extension
+                        record["dtype"]="Extension"
+                    if (json_text['kind']=='resource'): # in this case, it's a profile
+                        record["dtype"]="Profile"
+                    if (json_text['kind']=='complex-type') and (json_text['type']!='extension'): # in this case, it's a data type
+                        record["dtype"]="Data type"
+                else:
+                    record["dtype"]=rtype # for other resources, the resource type is the detailed ty
+                    record["name"] = json_text.get('name')
+                    record["version"] = json_text.get('version')
+                    record["url"] = json_text.get('url')
+                    record["date"] = json_text.get('date')
 
-            # get the rtype (resource type) and dtype (actual detailed type)
-            rtype = json_text['resourceType']
-            if('id' in json_text):
-                id = json_text['id']
+                    record["status"] = json_text.get('status')
 
-            paths=[]
-            if (rtype=="StructureDefinition"):
-                if (json_text['kind']=='logical'): # in this case, this is a logical model
-                    dtype="Logical Model"
-                if (json_text['type']=='extension'): # in this case, it's an  extension
-                    dtype="Extension"
-                if (json_text['kind']=='resource'): # in this case, it's a profile
-                    dtype="Profile"
-                if (json_text['kind']=='complex-type') and (json_text['type']!='extension'): # in this case, it's a data type
-                    dtype="Data type"
-            else:
-                dtype=rtype # for other resources, the resource type is the detailed type
-            
-
-            if('name' in json_text):
-                name = json_text['name']
-            else:
-                name = ''
-
-            if('version' in json_text):
-                version = json_text['version']
-            else:
-                name = ''
-
-            if('url' in json_text):
-                url = json_text['url']
-            else:
-                url = ''
-
-            if('date' in json_text):
-                date = json_text['date']
-            else:
-                date = ''
-
-            if('status' in json_text):
-                status = json_text['status']
-            else:
-                status = ''
-
+                #print(record)
+                print(result)
+                print("NEWWW---------------------------------")
+                result.append(record)
+    print(result)
+    return result
 
 
 ## Done. Now the logic: 
@@ -117,6 +111,12 @@ for index, js in enumerate(json_files):
  
 # save the CSV back
 
+#df=create_current_df('resources.csv')
 
+#print(df)
 
-print(df)
+n_list= read_package("packages/")
+#print(n_list)
+
+n_df=pd.DataFrame(n_list)
+n_df.to_csv("resources.csv")
