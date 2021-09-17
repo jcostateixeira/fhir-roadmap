@@ -211,7 +211,7 @@ for pack in folders:
 
 
 diff = compare(
-    load_csv(open("current_backup.csv"), key="id"),
-    load_csv(open("resources.csv"), key="id")
+    load_csv(open("current_backup.csv"), key="url"),
+    load_csv(open("resources.csv"), key="url")
 )
 print(diff)
