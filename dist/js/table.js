@@ -12,6 +12,12 @@ $(document).ready(function () {
       { "data": "subtopic" },
       { "data": "type" },
       { "data": "name" },
+
+      { "data": "name",
+      "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+          $(nTd).html("<a href='"+oData.url+"'>"+oData.name+"</a>");
+      },
+
       { "data": "status" },
       { "data": "date_started" },
       { "data": "date_published" },
