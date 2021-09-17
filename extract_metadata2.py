@@ -68,10 +68,16 @@ def read_package(folder):
                 else:
                     record["dtype"]=rtype # for other resources, the resource type is the detailed ty
               
+                if (rtype=="NamingSystem"):
+                    if ("uniqueId" in json_text) :
+                       uris = [x for x in json_text["uniqueId"] if (x["type"] == "uri" )] 
+                       record["url"] = [x for x in uris if x["preferred"] == True][0]["value"]
+                else:
+                    record["url"] = json_text.get('url')
+
                 # check if the paths are correct
                 record["name"] = json_text.get('name')
                 record["version"] = json_text.get('version')
-                record["url"] = json_text.get('url')
                 record["date"] = json_text.get('date')
                 record["topic"] = json_text.get('topic')
                 record["subtopic"] = json_text.get('subtopic')
