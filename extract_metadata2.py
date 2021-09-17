@@ -144,12 +144,16 @@ def create_csv_and_update(csv_path,package_folder):
     if type(current_df)==pd.DataFrame:
         current_df.to_csv("current_backup.csv",sep=";",index=False)
     n_df=read_package(package_folder)
+    #print(len(n_df))
    # n_df.to_csv("new_.csv",sep=";",index=False)
-    if type(current_df)==pd.DataFrame:
-        print("has a csv")
+    if type(current_df)==pd.DataFrame and len(n_df)>0:
+        print("has a csv which was updated")
         update_csv(current_df,n_df)
-    else:
+    elif type(current_df)!=pd.DataFrame and len(n_df)>0:
+        print("no csv and new written")
         n_df.to_csv("resources.csv",sep=";",index=False)
+    else:
+        print("no csv and not able to create new")
 
     
 
