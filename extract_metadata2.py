@@ -167,8 +167,6 @@ def create_csv_and_update(current_df,package_folder):
 # the URL for the maintainer is a hyperlink on the owner - opens a new window 
 # url is the 
   #  print(current_df)
-    if type(current_df)==pd.DataFrame:
-        current_df.to_csv("current_backup.csv",sep=";",index=False)
     n_df=read_package(package_folder)
 
    # n_df.to_csv("new_.csv",sep=";",index=False)
@@ -216,6 +214,9 @@ folders = getPackageFolders("packages2")
 print(folders)
 
 current_df=create_current_df("resources.csv")
+
+if type(current_df)==pd.DataFrame:
+    current_df.to_csv("current_backup.csv",sep=";",index=False)
 
 for pack in folders:
     create_csv_and_update(current_df,pack[0])
