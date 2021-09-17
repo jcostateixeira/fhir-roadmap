@@ -171,7 +171,7 @@ def getPackageFolders(path):
     #add dir to directorylist if it contains package.json files
     if len([f for f in os.listdir(path) if (f == 'package.json')])>0:
         directoryList.append(path)
-    # here, check the package.json and provide the date
+    # here, check the package.json and provide the date as well
     for d in os.listdir(path):
         new_path = os.path.join(path, d)
         if os.path.isdir(new_path):
