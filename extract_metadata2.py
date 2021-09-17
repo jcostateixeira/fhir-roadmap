@@ -178,15 +178,15 @@ def getPackageFolders(path):
     if os.path.isfile(path):
         return []
 
-    #add dir to directorylist if it contains .txt files
+    #add dir to directorylist if it contains package.json files
     if len([f for f in os.listdir(path) if (f == 'package.json')])>0:
         directoryList.append(path)
-
+    # here, check the package.json and populate the list with the directory and the date in the json
     for d in os.listdir(path):
         new_path = os.path.join(path, d)
         if os.path.isdir(new_path):
             directoryList += getPackageFolders(new_path)
-
+    # now, sort the directotyList by the date
     return directoryList
 
 folders = getPackageFolders("packages")
