@@ -25,7 +25,7 @@ def create_edges(element,relation_list,relationship_type_list,sep="|"):
 def get_data_and_create_node(datafile="data.csv"):
     data=pd.read_csv(datafile,encoding="iso8859_1",sep=";",keep_default_na=False)
 
-    colors={"Transaction":"#cce5e5","Questionnaire":"#AD97EC","DataType":"#83986B","Profile":"#CFCFCF","CodeSystem":"#CFFFFF","ValueSet":"#CFFFCF","Extension":"#FFCFCF","NamingSystem":"#FFCFFF","LogicalModel":"#87BEEF"}
+    colors={"Transaction":"#cce5e5","Questionnaire":"#AD97EC","DataType":"#83986B","Profile":"#CFCFCF","CodeSystem":"#CFFFFF","ValueSet":"#CFFFCF","Extension":"#FFCFCF","NamingSystem":"#FFCFFF","LogicalModel":"#87BEEF","Data type":"#CEBECF"}
 
     for idx,element in data.iterrows():
     #  if element["topic"]=="Vaccination": #test only
