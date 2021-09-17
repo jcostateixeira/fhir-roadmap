@@ -2,6 +2,8 @@ import os, json
 import pandas as pd
 import glob
 
+EXCLUSION_LIST=['package-list.json',".index.json",'package.json',"validation-summary","example"]
+
 
 def create_current_df(path):
     """
@@ -48,7 +50,7 @@ def read_package(folder):
     #print(record_upper)
     for index, js in enumerate(new_files):
       #  print(js)
-        if  not any(ext in js for ext in ['package-list.json',".index.json",'package.json',"validation-summary","example"]):   # for all other jsons:
+        if  not any(ext in js for ext in EXCLUSION_LIST):   # for all other jsons:
             with open(js, encoding='utf-8') as json_file:
                 record=record_upper.copy()
                 json_text = json.load(json_file)
@@ -170,7 +172,7 @@ def create_csv_and_update(current_df,package_folder):
         print("no csv and not able to create new")
         return None
 
-    
+import datetime
 def getPackageFolders(path):
     directoryList = []
 
@@ -180,20 +182,28 @@ def getPackageFolders(path):
 
     #add dir to directorylist if it contains package.json files
     if len([f for f in os.listdir(path) if (f == 'package.json')])>0:
-        directoryList.append(path)
+        with open(path+"/package.json") as packge_file:
+            pkg_json=json.load(packge_file)
+         #   print(pkg_json)
+            package_date=pkg_json.get("date") #not all have date
+            if not package_date:
+                package_date="19900801000000"
+            directoryList.append((path,datetime.datetime.strptime(package_date, '%Y%m%d%H%M%S')))
     # here, check the package.json and populate the list with the directory and the date in the json
     for d in os.listdir(path):
         new_path = os.path.join(path, d)
         if os.path.isdir(new_path):
-            directoryList += getPackageFolders(new_path)
+            directoryList.extend(getPackageFolders(new_path)) 
     # now, sort the directotyList by the date
-    return directoryList
+  #  print(directoryList)
+   #
+    return sorted(directoryList, key=lambda tup:(tup[1], tup[0]))
 
-folders = getPackageFolders("packages")
+folders = getPackageFolders("packages2")
 print(folders)
 
 current_df=create_current_df("resources.csv")
 
 for pack in folders:
-    print(create_csv_and_update(current_df,pack))
+    create_csv_and_update(current_df,pack[0])
 
