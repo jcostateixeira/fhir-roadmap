@@ -1,0 +1,24 @@
+{
+  "name": "hl7.be.fhir.r4.ehealthplatform.federalprofiles",
+  "version": "1.2.2",
+  "tools-version": 3,
+  "type": "fhir.ig",
+  "date": "20210710144456",
+  "license": "CC0-1.0",
+  "canonical": "https://hl7belgium.org/profiles/ehealth/be-core",
+  "url": "https://hl7belgium.org/profiles/ehealth/be-core/1.2.2",
+  "title": "Belgium eHealth FHIR Core specifications",
+  "description": "The core FHIR profiles for use in Belgium interoperability specifications (built Sat, Jul 10, 2021 14:44+0200+02:00)",
+  "fhirVersions": [
+    "4.0.1"
+  ],
+  "dependencies": {
+    "hl7.fhir.r4.core": "4.0.1"
+  },
+  "author": "eHealth",
+  "directories": {
+    "lib": "package",
+    "example": "example"
+  },
+  "jurisdiction": "http://unstats.un.org/unsd/methods/m49/m49.htm#056"
+}
