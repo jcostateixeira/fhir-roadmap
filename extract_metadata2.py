@@ -136,7 +136,7 @@ def update_csv(old,new):
     #save the old again
     old.to_csv("resources.csv",sep=";",index=False)
 
-def create_csv_and_update(csv_path,package_folder):
+def create_csv_and_update(current_df,package_folder):
 ## Done. Now the logic: 
 ## 1. If there is a URL and that URL already exists in the csv, replace the values in the CSV  
 ## 2. If there is no CSV, then create a new entry with the values. 
@@ -145,7 +145,6 @@ def create_csv_and_update(csv_path,package_folder):
 # the URL for the resource is a hyperlink on the resource name - opens a new window 
 # the URL for the maintainer is a hyperlink on the owner - opens a new window 
 # url is the 
-    current_df=create_current_df(csv_path)
   #  print(current_df)
     if type(current_df)==pd.DataFrame:
         current_df.to_csv("current_backup.csv",sep=";",index=False)
@@ -162,5 +161,29 @@ def create_csv_and_update(csv_path,package_folder):
         print("no csv and not able to create new")
 
     
+def getPackageFolders(path):
+    directoryList = []
 
-create_csv_and_update("resources.csv","packages")
+    #return nothing if path is a file
+    if os.path.isfile(path):
+        return []
+
+    #add dir to directorylist if it contains .txt files
+    if len([f for f in os.listdir(path) if (f == 'package.json')])>0:
+        directoryList.append(path)
+
+    for d in os.listdir(path):
+        new_path = os.path.join(path, d)
+        if os.path.isdir(new_path):
+            directoryList += getPackageFolders(new_path)
+
+    return directoryList
+
+folders = getPackageFolders("packages")
+print(folders)
+
+current_df=create_current_df("resources.csv")
+
+for pack in folders:
+    create_csv_and_update(current_df,pack)
+
