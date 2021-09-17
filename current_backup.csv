@@ -30,3 +30,4 @@ FSIIICareMatterOfInterests;ValueSet;FSIIICareMatterOfInterests;1.0.1;http://gate
 granularity-vs;ValueSet;GranularityVS;0.1.0;http://hl7.org/fhir/us/example/ValueSet/granularity-vs;2021-08-18T13:03:39+00:00;;;;;active;;;;;;
 KLGatewayCareMatterOfInterestValues;ValueSet;KLGatewayCareMatterOfInterestValues;1.0.1;http://gateway.kl.dk/1.0/ValueSet/KLGatewayCareMatterOfInterestValues;2021-03-08T11:11:44+00:00;;;;;active;;;;;;
 ;Bundle;;;;;;;;;;;;;;;
+;Bundle;;;;;;;;;;;;;;;

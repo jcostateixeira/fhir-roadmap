@@ -115,11 +115,12 @@ def read_package(folder):
 
 
 def update_csv(old,new):
-
+    list_of_changes={"updated":[],"created":[],"other":[]}
     for idx,row in new.iterrows(): #for every row in new df
         #print(row["url"])
         if row["url"] in old["url"].values: #if url in new df is in old df
             #update values
+            list_of_changes["updated"].append(row["url"])
             old.loc[old["url"]==row["url"],"date"]=row["date"]
             old.loc[old["url"]==row["url"],"version"]=row["version"]
             old.loc[old["url"]==row["url"],"status"]=row["status"]
@@ -130,11 +131,17 @@ def update_csv(old,new):
             old.loc[old["url"]==row["url"],"pack_last_review_date"]=row["pack_last_review_date"]
             old.loc[old["url"]==row["url"],"relation"]=row["relation"]
             old.loc[old["url"]==row["url"],"relation_type"]=row["relation_type"]
-        else: #if does not exist, add to df
+        elif row["url"] is not None: #if does not exist, add to df (must have url)
             #print(row)
+            list_of_changes["created"].append(row["url"])
             old=old.append(row,ignore_index=True)
+        else:
+            list_of_changes["other"].append("something weird on row "+str(idx))
+
     #save the old again
     old.to_csv("resources.csv",sep=";",index=False)
+    #return track changes
+    return list_of_changes
 
 def create_csv_and_update(current_df,package_folder):
 ## Done. Now the logic: 
@@ -153,12 +160,15 @@ def create_csv_and_update(current_df,package_folder):
    # n_df.to_csv("new_.csv",sep=";",index=False)
     if type(current_df)==pd.DataFrame and len(n_df)>0:
         print("has a csv which was updated")
-        update_csv(current_df,n_df)
+        changes=update_csv(current_df,n_df)
+        return changes
     elif type(current_df)!=pd.DataFrame and len(n_df)>0:
         print("no csv and new written")
         n_df.to_csv("resources.csv",sep=";",index=False)
+        return None
     else:
         print("no csv and not able to create new")
+        return None
 
     
 def getPackageFolders(path):
@@ -185,5 +195,5 @@ print(folders)
 current_df=create_current_df("resources.csv")
 
 for pack in folders:
-    create_csv_and_update(current_df,pack)
+    print(create_csv_and_update(current_df,pack))
 
