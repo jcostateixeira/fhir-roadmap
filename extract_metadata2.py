@@ -187,7 +187,7 @@ def getPackageFolders(path):
          #   print(pkg_json)
             package_date=pkg_json.get("date") #not all have date
             if not package_date:
-                package_date="19900801000000"
+               raise ValueError("Package without date: "+path)
             directoryList.append((path,datetime.datetime.strptime(package_date, '%Y%m%d%H%M%S')))
     # here, check the package.json and populate the list with the directory and the date in the json
     for d in os.listdir(path):
