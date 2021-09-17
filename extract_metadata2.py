@@ -1,6 +1,7 @@
 import os, json
 import pandas as pd
 import glob
+from csv_diff import load_csv, compare
 
 EXCLUSION_LIST=['package-list.json',".index.json",'package.json',"validation-summary","example"]
 
@@ -169,7 +170,7 @@ def create_csv_and_update(current_df,package_folder):
     if type(current_df)==pd.DataFrame:
         current_df.to_csv("current_backup.csv",sep=";",index=False)
     n_df=read_package(package_folder)
-    #print(len(n_df))
+
    # n_df.to_csv("new_.csv",sep=";",index=False)
     if type(current_df)==pd.DataFrame and len(n_df)>0:
         print("has a csv which was updated")
@@ -198,7 +199,8 @@ def getPackageFolders(path):
          #   print(pkg_json)
             package_date=pkg_json.get("date") #not all have date
             if not package_date:
-               raise ValueError("Package without date: "+path)
+             #  raise ValueError("Package without date: "+path)
+               package_date="19900801000000"
             directoryList.append((path,datetime.datetime.strptime(package_date, '%Y%m%d%H%M%S')))
     # here, check the package.json and populate the list with the directory and the date in the json
     for d in os.listdir(path):
@@ -218,3 +220,9 @@ current_df=create_current_df("resources.csv")
 for pack in folders:
     create_csv_and_update(current_df,pack[0])
 
+
+diff = compare(
+    load_csv(open("current_backup.csv"), key="url"),
+    load_csv(open("resources.csv"), key="url")
+)
+print(diff)
