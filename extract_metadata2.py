@@ -123,16 +123,26 @@ def update_csv(old,new):
         if row["url"] in old["url"].values: #if url in new df is in old df
             #update values
             list_of_changes["updated"].append(row["url"])
-            old.loc[old["url"]==row["url"],"date"]=row["date"]
-            old.loc[old["url"]==row["url"],"version"]=row["version"]
-            old.loc[old["url"]==row["url"],"status"]=row["status"]
-            old.loc[old["url"]==row["url"],"dtype"]=row["dtype"]
-            old.loc[old["url"]==row["url"],"id"]=row["id"]
-            old.loc[old["url"]==row["url"],"pack_wg_url"]=row["pack_wg_url"]
-            old.loc[old["url"]==row["url"],"pack_author"]=row["pack_author"]
-            old.loc[old["url"]==row["url"],"pack_last_review_date"]=row["pack_last_review_date"]
-            old.loc[old["url"]==row["url"],"relation"]=row["relation"]
-            old.loc[old["url"]==row["url"],"relation_type"]=row["relation_type"]
+            old.loc[old["url"]==row["url"],"date"]=row.get("date")
+            old.loc[old["url"]==row["url"],"version"]=row.get("version")
+            old.loc[old["url"]==row["url"],"status"]=row.get("status")
+            old.loc[old["url"]==row["url"],"dtype"]=row.get("dtype")
+            old.loc[old["url"]==row["url"],"id"]=row.get("id")
+            old.loc[old["url"]==row["url"],"pack_wg_url"]=row.get("pack_wg_url")
+            old.loc[old["url"]==row["url"],"pack_author"]=row.get("pack_author")
+            old.loc[old["url"]==row["url"],"pack_last_review_date"]=row.get("pack_last_review_date")
+            old.loc[old["url"]==row["url"],"relation"]=row.get("relation")
+            old.loc[old["url"]==row["url"],"relation_type"]=row.get("relation_type")
+
+            old.loc[old["url"]==row["url"],"date_started"]=row.get("date_started")
+            old.loc[old["url"]==row["url"],"date_published"]=row.get("date_published")
+            old.loc[old["url"]==row["url"],"date_reviewed"]=row.get("date_reviewed")
+            old.loc[old["url"]==row["url"],"maturity"]=row.get("maturity")
+            old.loc[old["url"]==row["url"],"relation_type"]=row.get("relation_type")
+            old.loc[old["url"]==row["url"],"legal"]=row.get("legal")
+            old.loc[old["url"]==row["url"],"relation"]=row.get("relation")
+            
+
         elif row["url"] is not None: #if does not exist, add to df (must have url)
             #print(row)
             list_of_changes["created"].append(row["url"])
@@ -143,6 +153,7 @@ def update_csv(old,new):
     #save the old again
     old.to_csv("resources.csv",sep=";",index=False)
     #return track changes
+
     return list_of_changes
 
 def create_csv_and_update(current_df,package_folder):
