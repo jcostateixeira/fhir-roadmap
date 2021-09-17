@@ -61,18 +61,16 @@ def read_package(folder):
                 record["id"]= json_text.get('id')
                 if (rtype=="StructureDefinition"):
                     if (json_text['kind']=='logical'): # in this case, this is a logical model
-                        record["dtype"]="Logical Model"
+                        record["type"]="Logical Model"
                     if (json_text['type']=='extension'): # in this case, it's an  extension
-                        record["dtype"]="Extension"
+                        record["type"]="Extension"
                     if (json_text['kind']=='resource'): # in this case, it's a profile
-                        record["dtype"]="Profile"
+                        record["type"]="Profile"
                     if (json_text['kind']=='complex-type') and (json_text['type']!='extension'): # in this case, it's a data type
-                        record["dtype"]="Data type"
+                        record["type"]="Data type"
                 else:
-                    record["dtype"]=rtype # for other resources, the resource type is the detailed ty
+                    record["type"]=rtype # for other resources, the resource type is the detailed ty
 
-                record["type"] = record["dtype"]
-                record.pop("dtype")
 
                 if (rtype=="NamingSystem"):
                     if ("uniqueId" in json_text) :
@@ -80,6 +78,10 @@ def read_package(folder):
                        record["url"] = [x for x in uris if x["preferred"] == True][0]["value"]
                 else:
                     record["url"] = json_text.get('url')
+
+#                record["type"] = record["dtype"]
+#                record.pop("dtype")
+
 
                 # check if the paths are correct
                 record["name"] = json_text.get('name')
@@ -130,7 +132,7 @@ def update_csv(old,new):
             old.loc[old["url"]==row["url"],"date"]=row.get("date")
             old.loc[old["url"]==row["url"],"version"]=row.get("version")
             old.loc[old["url"]==row["url"],"status"]=row.get("status")
-            old.loc[old["url"]==row["url"],"type"]=row.get("dtype")
+            old.loc[old["url"]==row["url"],"type"]=row.get("type")
             old.loc[old["url"]==row["url"],"id"]=row.get("id")
             old.loc[old["url"]==row["url"],"pack_wg_url"]=row.get("pack_wg_url")
             old.loc[old["url"]==row["url"],"pack_author"]=row.get("pack_author")
@@ -179,7 +181,7 @@ def create_csv_and_update(current_df,package_folder):
         return changes
     elif type(current_df)!=pd.DataFrame and len(n_df)>0:
         print("no csv and new written")
-        n_df.to_csv("resources.csv",sep=";",index=False)
+        n_df.to_csv("resources.csv",sep=";",index=True)
         return None
     else:
         print("no csv and not able to create new")
