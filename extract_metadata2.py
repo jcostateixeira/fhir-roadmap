@@ -70,7 +70,10 @@ def read_package(folder):
                         record["dtype"]="Data type"
                 else:
                     record["dtype"]=rtype # for other resources, the resource type is the detailed ty
-              
+
+                record["type"] = record["dtype"]
+                record.pop("dtype")
+
                 if (rtype=="NamingSystem"):
                     if ("uniqueId" in json_text) :
                        uris = [x for x in json_text["uniqueId"] if (x["type"] == "uri" )] 
@@ -127,7 +130,7 @@ def update_csv(old,new):
             old.loc[old["url"]==row["url"],"date"]=row.get("date")
             old.loc[old["url"]==row["url"],"version"]=row.get("version")
             old.loc[old["url"]==row["url"],"status"]=row.get("status")
-            old.loc[old["url"]==row["url"],"dtype"]=row.get("dtype")
+            old.loc[old["url"]==row["url"],"type"]=row.get("dtype")
             old.loc[old["url"]==row["url"],"id"]=row.get("id")
             old.loc[old["url"]==row["url"],"pack_wg_url"]=row.get("pack_wg_url")
             old.loc[old["url"]==row["url"],"pack_author"]=row.get("pack_author")
