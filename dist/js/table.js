@@ -13,8 +13,7 @@ $(document).ready(function () {
       { "data": "type" },
       { "data": "name" },
 
-      { "data": "name",
-      "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+      { "data": "name", render: function (nTd, sData, oData, iRow, iCol) {
         return  '<a href="'+oData.url+'">'+oData.name+'</a>';
       }},
 
