@@ -11,7 +11,7 @@ $(document).ready(function () {
       { "data": "topic" },
       { "data": "subtopic" },
       { "data": "type" },
-      { "data": "name" },
+ //     { "data": "name" },
 
       { "data": "name", render: function (nTd, sData, oData, iRow, iCol) {
         return  '<a href="'+oData.url+'">'+oData.name+'</a>';
