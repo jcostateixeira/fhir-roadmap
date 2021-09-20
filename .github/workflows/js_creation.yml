@@ -5,7 +5,7 @@ on:
     paths:
       - 'data.csv'
       - 'data_parser.py'
-      - '.github/workflows/main.yml'
+      - '.github/workflows/js_creation.yml'
 
 jobs:
   build:
