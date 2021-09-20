@@ -2,6 +2,8 @@ import os, json
 import pandas as pd
 import glob
 from csv_diff import load_csv, compare
+import datetime
+
 
 EXCLUSION_LIST=['package-list.json',".index.json",'package.json',"validation-summary","example"]
 
@@ -187,7 +189,6 @@ def create_csv_and_update(current_df,package_folder):
         print("no csv and not able to create new")
         return None
 
-import datetime
 def getPackageFolders(path):
     directoryList = []
 
