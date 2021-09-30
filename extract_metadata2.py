@@ -7,7 +7,6 @@ import datetime
 
 EXCLUSION_LIST=['package-list.json',".index.json",'package.json',"validation-summary","example"]
 
-
 def create_current_df(path):
     """
     reads a csv in the specified folder, if it does not exists returns None
@@ -18,6 +17,48 @@ def create_current_df(path):
     else:
         return None
 
+def extract_relation(res,resource_type):
+    dict_relat=[]
+
+    
+    """
+    this function takes a unique resource and create the entries for relation.csv
+    Logic:
+    Profile:
+        Bound (Req) = element.binding[strength = required].valueset
+        Bound (Ext) = element.binding[strength = extensible].valueset
+        Bound (Pref) = element.binding[strength = preferred].valueset
+        Bound (Exam) = element.binding[strength = example].valueset
+        Extension = element.type[code = extension].profile
+
+    ValueSet:
+        valuesFrom = compose.include.system
+        valuesFrom = expansion.contains.system
+    """
+    relation_type_data={"required":"Bound (Req)","extensible":"Bound (Ext)","preferred":"Bound (Pref)","example":"Bound (Exam)"}
+
+    if resource_type=="Profile":
+        elements=res.get('snapshot', {}).get('element', {})
+        for element in  elements:
+            binding=element.get("binding",{}).get("strength") 
+            value=element.get("binding",{}).get("valueSet")
+
+            if binding:
+                #print(resource_type,"binding -> ",binding,value)
+                dict_relat.append({"id":res.get("id"),"relation":value,"relation_type":relation_type_data[binding]})
+            for l in element.get("type",[]):
+                if l.get("code",{})=="Extension":
+                    #pass
+                    if l.get("profile"):
+                        dict_relat.append({"id":res.get("id"),"relation":l.get("profile"),"relation_type":"Extension"})
+
+                 #   print()
+    elif resource_type=="ValueSet":
+        for s in res.get("compose",{}).get("include",[]):
+            if s.get("system"):
+                dict_relat.append({"id":res.get("id"),"relation":s.get("system"),"relation_type":"valuesFrom"})
+        #print(res.get("expansion",{}).get("contains",[]))
+    return dict_relat
 
 def read_package(folder):
     """
@@ -32,6 +73,7 @@ def read_package(folder):
                 new_files.append(os.path.join(r, file))
 
     result=[]
+    relations=[]
     record_upper={}
     for index, js in enumerate(new_files):
         if (js == 'packages/package.json'):
@@ -97,13 +139,14 @@ def read_package(folder):
                 record["pack_wg_url"] = json_text.get('pack_wg_url')
                 record["pack_author"] = json_text.get('pack_author')
                 record["pack_last_review_date"] = json_text.get('pack_last_review_date')
-                record["relation"] = json_text.get('relation')
-                record["relation_type"] = json_text.get('relation_type')
+               # record["relation"] = json_text.get('relation')
+               # record["relation_type"] = json_text.get('relation_type')
                 record["legal"] = json_text.get('legal')
-
+                relations.extend(extract_relation(json_text,record["type"])) #adds entries to relation list
                 result.append(record)
   #  print(result)
-    return pd.DataFrame(result)
+    relation_unique = {x['id']:x for x in relations}.values() #dont quite know why so much duplicates
+    return pd.DataFrame(result),pd.DataFrame(relation_unique)
 
 
 # CSV structure: 
@@ -124,7 +167,7 @@ def read_package(folder):
 # Version.
 
 
-def update_csv(old,new):
+def update_resource_csv(old,new):
     list_of_changes={"updated":[],"created":[],"other":[]}
     for idx,row in new.iterrows(): #for every row in new df
         #print(row["url"])
@@ -139,16 +182,12 @@ def update_csv(old,new):
             old.loc[old["url"]==row["url"],"pack_wg_url"]=row.get("pack_wg_url")
             old.loc[old["url"]==row["url"],"pack_author"]=row.get("pack_author")
             old.loc[old["url"]==row["url"],"pack_last_review_date"]=row.get("pack_last_review_date")
-            old.loc[old["url"]==row["url"],"relation"]=row.get("relation")
-            old.loc[old["url"]==row["url"],"relation_type"]=row.get("relation_type")
 
             old.loc[old["url"]==row["url"],"date_started"]=row.get("date_started")
             old.loc[old["url"]==row["url"],"date_published"]=row.get("date_published")
             old.loc[old["url"]==row["url"],"date_reviewed"]=row.get("date_reviewed")
             old.loc[old["url"]==row["url"],"maturity"]=row.get("maturity")
-            old.loc[old["url"]==row["url"],"relation_type"]=row.get("relation_type")
             old.loc[old["url"]==row["url"],"legal"]=row.get("legal")
-            old.loc[old["url"]==row["url"],"relation"]=row.get("relation")
             
 
         elif row["url"] is not None: #if does not exist, add to df (must have url)
@@ -164,7 +203,34 @@ def update_csv(old,new):
 
     return list_of_changes
 
-def create_csv_and_update(current_df,package_folder):
+def update_relation_csv(old,new):
+
+    list_of_changes={"updated":[],"created":[],"other":[]}
+    for idx,row in new.iterrows(): #for every row in new df
+        #print(row["url"])
+        if row["id"] in old["id"].values: #if url in new df is in old df
+            #update values
+            list_of_changes["updated"].append(row["id"])
+            old.loc[old["id"]==row["id"],"relation"]=row.get("relation")
+            old.loc[old["id"]==row["id"],"relation_type"]=row.get("relation_type")
+
+            
+
+        elif row["id"] is not None: #if does not exist, add to df (must have url)
+            #print(row)
+            list_of_changes["created"].append(row["id"])
+            old=old.append(row,ignore_index=True)
+        else:
+            list_of_changes["other"].append("something weird on row "+str(idx))
+
+    #save the old again
+    old.to_csv("relation.csv",sep=";",index=False)
+    #return track changes
+
+    return list_of_changes
+
+
+def create_csv_and_update(current_resource,current_relation,package_folder):
 ## Done. Now the logic: 
 ## 1. If there is a URL and that URL already exists in the csv, replace the values in the CSV  
 ## 2. If there is no CSV, then create a new entry with the values. 
@@ -173,21 +239,43 @@ def create_csv_and_update(current_df,package_folder):
 # the URL for the resource is a hyperlink on the resource name - opens a new window 
 # the URL for the maintainer is a hyperlink on the owner - opens a new window 
 # url is the 
-  #  print(current_df)
-    n_df=read_package(package_folder)
-
+  #  print(current_resource)
+    outcome={"resource_status":"error","resource_outcome":"N/A","relation_outcome":"N/A","relation_status":"error"}
+    resource_df,relation_df=read_package(package_folder)
+  #  print(n_relation)
    # n_df.to_csv("new_.csv",sep=";",index=False)
-    if type(current_df)==pd.DataFrame and len(n_df)>0:
-        print("has a csv which was updated")
-        changes=update_csv(current_df,n_df)
-        return changes
-    elif type(current_df)!=pd.DataFrame and len(n_df)>0:
-        print("no csv and new written")
-        n_df.to_csv("resources.csv",sep=";",index=True)
-        return None
+    if type(current_resource)==pd.DataFrame and len(resource_df)>0:
+        print("has a resource csv which was updated")
+        changes=update_resource_csv(current_resource,resource_df)
+        #return changes
+        outcome["resource_status"]="changed"
+        outcome["resource_outcome"]=changes
+    elif type(current_resource)!=pd.DataFrame and len(resource_df)>0:
+        print("no resource csv and new written")
+        resource_df.to_csv("resources.csv",sep=";",index=False)
+        #return None
+        outcome["resource_status"]="new"
+
     else:
-        print("no csv and not able to create new")
-        return None
+        print("no resource csv and not able to create new")
+
+    if type(current_relation)==pd.DataFrame and len(relation_df)>0:
+        print("has a relation csv which was updated")
+        changes=update_relation_csv(current_relation,relation_df)
+        #return changes
+        outcome["relation_status"]="changed"
+        outcome["relation_outcome"]=changes
+    elif type(current_relation)!=pd.DataFrame and len(relation_df)>0:
+        print("no relation csv and new written")
+        relation_df.to_csv("relation.csv",sep=";",index=False)
+        #return None
+        outcome["relation_status"]="new"
+
+    else:
+        print("no relation csv and not able to create new")
+
+    return outcome
+
 
 def getPackageFolders(path):
     directoryList = []
@@ -216,20 +304,30 @@ def getPackageFolders(path):
    #
     return sorted(directoryList, key=lambda tup:(tup[1], tup[0]))
 
-folders = getPackageFolders("packages2")
-print(folders)
 
-current_df=create_current_df("resources.csv")
+def main(package_folder):
+    folders = getPackageFolders(package_folder)
+    print("Folders---",folders)
 
-if type(current_df)==pd.DataFrame:
-    current_df.to_csv("current_backup.csv",sep=";",index=False)
+    current_df=create_current_df("resources.csv")
+    current_relation=create_current_df("relation.csv")
+    if type(current_df)==pd.DataFrame:
+        current_df.to_csv("resources_backup.csv",sep=";",index=False)
+    if type(current_relation)==pd.DataFrame:
+        current_relation.to_csv("relation_backup.csv",sep=";",index=False)
 
-for pack in folders:
-    create_csv_and_update(current_df,pack[0])
+    for pack in folders:
+        current_df=create_current_df("resources.csv")#redo for newly created data in loop
+        current_relation=create_current_df("relation.csv")#redo for newly created data in loop
+        create_csv_and_update(current_df,current_relation,pack[0])
 
 
-diff = compare(
-    load_csv(open("current_backup.csv"), key="url"),
-    load_csv(open("resources.csv"), key="url")
-)
-print(diff)
+    diff = compare(
+        load_csv(open("resources_backup.csv"), key="url"),
+        load_csv(open("resources.csv"), key="url")
+    )
+    print(diff)
+
+main("packages")
+
+#print(dict_relat)

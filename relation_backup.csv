@@ -1,0 +1,29 @@
+id;relation;relation_type
+be-allergyintolerance;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-exposureroute;Bound (Ext)
+be-observation;http://hl7.org/fhir/ValueSet/observation-interpretation;Bound (Ext)
+be-organization;http://hl7.org/fhir/ValueSet/contactentity-type;Bound (Ext)
+be-patient;http://hl7.org/fhir/ValueSet/link-type|4.0.0;Bound (Req)
+be-practitioner;http://hl7.org/fhir/ValueSet/languages;Bound (Pref)
+be-practitionerrole;http://hl7.org/fhir/ValueSet/days-of-week|4.0.0;Bound (Req)
+be-provenance;http://hl7.org/fhir/ValueSet/provenance-entity-role|4.0.0;Bound (Req)
+be-causativeagent;http://snomed.info/sct;valuesFrom
+be-civilstate;http://terminology.hl7.org/CodeSystem/v3-NullFlavor;valuesFrom
+be-contactperson;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-contact-person;valuesFrom
+be-exposureroute;http://snomed.info/sct;valuesFrom
+be-noallergy;http://snomed.info/sct;valuesFrom
+be-riskmanifestation;http://snomed.info/sct;valuesFrom
+be-homecare-plan;http://hl7.org/fhir/ValueSet/medication-codes;Bound (Exam)
+be-homecare-team;http://hl7.org/fhir/ValueSet/clinical-findings;Bound (Exam)
+eagreementproductorservice;http://www.mycarenet.be/fhir/CodeSystem/nihdi-physiotherapy-pathologysituationcode;valuesFrom
+be-vs-bodysite;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-bodysite;valuesFrom
+be-vs-care-location;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-care-location;valuesFrom
+be-vs-diarytopic;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-diarytopic;valuesFrom
+be-vs-patientwill-category;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-patientwill-category;valuesFrom
+be-vs-patientwill-code;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-patientwill-code;valuesFrom
+be-vs-problem-category;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-problem-category;valuesFrom
+be-vs-problem-origin-type;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-problem-origin-type;valuesFrom
+be-vs-score;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-score;valuesFrom
+be-vs-scorecategory;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-score-category;valuesFrom
+be-vs-vaccination-administration-route;http://terminology.hl7.org/CodeSystem/v3-NullFlavor;valuesFrom
+be-vs-vaccination-confirmation-status;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-vaccination-confirmation-status;valuesFrom
+be-vs-vaccination-status-reason;http://terminology.hl7.org/CodeSystem/v3-ActReason;valuesFrom

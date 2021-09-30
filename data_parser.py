@@ -6,24 +6,32 @@ nodes_list=[]
 edges_list=[]
 final_data={"data":[]}
 
-def create_edges(element,relation_list,relationship_type_list,sep="|"):
-    edge_info={"transaction":("transaction","Transaction From","bar","#7a8989"),"questionnaire":("questionnaire","Questionnnaire From","bar","#453C5E"),"namingsystem":("system","System","diamond", "#404040" ),"codesystem":("values_from","Values from","arrow", "#404000" ),"valueset":("binding_req","Bound (Req)","arrow", "#000000"),"extension":("extension","Extension","curve", "#400000" ),"logicalmodel":("logical_model_from","Model from","arrow", "#000000"),"system":("system","System","diamond", "#404040" )}
-
+def create_edges(element,relationdf):
+    edge_info={"profile":("","","",""),"transaction":("transaction","Transaction From","bar","#7a8989"),"questionnaire":("questionnaire","Questionnnaire From","bar","#453C5E"),"namingsystem":("system","System","diamond", "#404040" ),"codesystem":("values_from","Values from","arrow", "#404000" ),"valueset":("binding_req","Bound (Req)","arrow", "#000000"),"extension":("extension","Extension","curve", "#400000" ),"logicalmodel":("logical_model_from","Model from","arrow", "#000000"),"system":("system","System","diamond", "#404040" )}
+    #print(element["id"])
+    relation_list=relationdf[relationdf["id"]==element["id"]]
+    #print(relation_list)
     if len(relation_list)==0:
         return None
-    relation=relation_list.split(sep)
+    #else:
+       # print(relation_list)
+    #relation=relation_list.split(sep)
 
-    for node in relation:
+    for idx,node in relation_list.iterrows():
+       # print(node)
         r=edge_info[element["type"].lower()][0]
-        r_label=edge_info[element["type"].lower()][1]
+       # r_label=edge_info[element["type"].lower()][1]
+        r_label=node["relation_type"]
         arrows=edge_info[element["type"].lower()][2]
         arrow_color=edge_info[element["type"].lower()][3]
-        edge={"from": node,"to": element["id"], "relation":r, "label": r_label,"arrows": {"to":{ "enabled": True,"type":arrows} },"color": { "color": arrow_color }}
+        edge={"from": node["relation"],"to": element["id"], "relation":r, "label": r_label,"arrows": {"to":{ "enabled": True,"type":arrows} },"color": { "color": arrow_color }}
+        print(edge)
         edges_list.append(edge)
 
 
-def get_data_and_create_node(datafile="data.csv"):
+def get_data_and_create_node(datafile="data.csv",relationfile="relation.csv"):
     data=pd.read_csv(datafile,encoding="iso8859_1",sep=";",keep_default_na=False)
+    relation=pd.read_csv(relationfile,encoding="iso8859_1",sep=";",keep_default_na=False)
 
     colors={"Transaction":"#cce5e5","Questionnaire":"#AD97EC","DataType":"#83986B","Profile":"#CFCFCF","CodeSystem":"#CFFFFF","ValueSet":"#CFFFCF","Extension":"#FFCFCF","NamingSystem":"#FFCFFF","LogicalModel":"#87BEEF","Data type":"#CEBECF"}
 
@@ -48,7 +56,7 @@ def get_data_and_create_node(datafile="data.csv"):
             else:
                 status=element["status"]
             res["label"]="*"+element["name"]+"**\n("+element["type"]+")\nStatus: "+status
-            create_edges(element,element["relation"],element["relation_type"])
+            create_edges(element,relation)
             nodes_list.append(res)
 
 
