@@ -22,15 +22,17 @@ def create_edges(element,relation_list,relationship_type_list,sep="|"):
         edges_list.append(edge)
 
 
-def get_data_and_create_node(datafile="data.csv"):
+def get_data_and_create_node(datafile="resources.csv"):
     data=pd.read_csv(datafile,encoding="iso8859_1",sep=";",keep_default_na=False)
 
-    colors={"Transaction":"#cce5e5","Questionnaire":"#AD97EC","DataType":"#83986B","Profile":"#CFCFCF","CodeSystem":"#CFFFFF","ValueSet":"#CFFFCF","Extension":"#FFCFCF","NamingSystem":"#FFCFFF","LogicalModel":"#87BEEF","Data type":"#CEBECF"}
+    colors={"Transaction":"#cce5e5","Questionnaire":"#AD97EC","ImplementationGuide":"#AABBCC","DataType":"#83986B","Profile":"#CFCFCF","CodeSystem":"#CFFFFF","ValueSet":"#CFFFCF","Extension":"#FFCFCF","NamingSystem":"#FFCFFF","LogicalModel":"#87BEEF","Data type":"#CEBECF"}
 
     for idx,element in data.iterrows():
     #  if element["topic"]=="Vaccination": #test only
             res={}
-            
+
+
+
         #  print(element["topic"])
             res["id"]=element["id"]
 
@@ -43,6 +45,26 @@ def get_data_and_create_node(datafile="data.csv"):
             res["shape"]="box"
             res["font"]={ "align": "left", "multi":"md" }
             res["color"]=colors[element["type"]]
+
+            res["date_started"]=element["date_started"]
+            res["date_published"]=element["date_published"]
+            res["date_reviewed"]=element["date_reviewed"]
+            res["maturity"]=element["maturity"]
+            res["legal"]=element["legal"]
+            res["version"]=element["version"]
+
+
+# relation;
+# relation_type;
+# date;
+# owner;
+# pack_author;
+# pack_last_review_date;
+# pack_wg_url
+
+
+
+
             if element["status"]=="":
                 status="draft"
             else:

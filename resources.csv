@@ -1,81 +1,159 @@
-id;url;topic;subtopic;type;name;status;date_started;date_published;date_reviewed;maturity;legal;version;relation;relation_type;date;owner;pack_author;pack_last_review_date;pack_wg_url
-albert;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/albert;;;CodeSystem;Albert;active;;;;;;1.0.0;;;2021-05-26T11:15:46+02:00;;;;
-be-cs-bodysite;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-bodysite;;;CodeSystem;BeCSBodySite;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-cs-care-location;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-care-location;;;CodeSystem;BeCSCareLocation;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-cs-diarytopic;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-diarytopic;;;CodeSystem;BeCSDiaryTopic;active;;;;;;1.0.0;;;2021-01-18T09:02:46+00:00;;;;
-be-cs-patientwill-category;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-patientwill-category;;;CodeSystem;BeCSPAtientWillCategory;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-cs-patientwill-code;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-patientwill-code;;;CodeSystem;BeCSPAtientWillCode;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-cs-problem-category;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-problem-category;;;CodeSystem;BeCSProblemCategory;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-cs-problem-origin-type;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-problem-origin-type;;;CodeSystem;BeCSProblemOriginType;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-cs-score-category;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-score-category;;;CodeSystem;BeCSScoreCategory;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-cs-score;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-score;;;CodeSystem;BeCSScore;active;;;;;;1.0.0;;;2020-10-01T11:01:09+00:00;;;;
-be-cs-vaccination-administration-route;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-vaccination-administration-route;;;CodeSystem;BeCSVaccineAdministrationRoute;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-cs-vaccination-confirmation-status;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-vaccination-confirmation-status;;;CodeSystem;BeCSVaccinationConfirmationStatus;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-cs-vaccination-status-reason;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-vaccination-status-reason;;;CodeSystem;BeCSStatusReason;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-cd-civilstate;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-civilstate;;;CodeSystem;CivilState;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-cd-contact-person;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-contact-person;;;CodeSystem;ContactPerson;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-cd-fed-country;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-fed-country;;;CodeSystem;Cdfedcountry;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-cd-hcparty;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-hcparty;;;CodeSystem;HCParty;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-be-ext-addiction-quantifier;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-ext-addiction-quantifier;;;Data type;BeExtAddictionQuantifier;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-ext-administeredProduct;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-ext-administeredProduct;;;Data type;BeExtAdministeredProduct;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-ext-laterality;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-ext-laterality;;;Data type;BeExtLaterality;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-ext-problem-origin-type;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-ext-problem-origin-type;;;Data type;BeExtProblemOriginType;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-ext-recorder;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-ext-recorder;;;Data type;BeExtRecorder;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-ext-vaccination-confirmationStatus;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-ext-vaccination-confirmationStatus;;;Data type;BeExtVaccinationConfirmationStatus;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-ext-vaccination-location;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-ext-vaccination-location;;;Data type;BeExtVaccinationLocation;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-ext-vaccination-originalorder;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-ext-vaccination-originalorder;;;Data type;BeExtVaccinationOriginalOrder;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-ns-cnk-codes;https://www.ehealth.fgov.be/standards/fhir/NamingSystem/cnk-code;;;NamingSystem;BeNSCNK;active;;;;;;;;;2020-07-24;;;;
-be-ns-cti-extended-code;https://www.ehealth.fgov.be/standards/fhir/NamingSystem/cti-extended-code;;;NamingSystem;BeNSCTIExtended;active;;;;;;;;;2020-07-24;;;;
-be-ns-nihdi-organization;https://www.ehealth.fgov.be/standards/fhir/NamingSystem/nihdi-organization;;;NamingSystem;BeNSNIHDIOrganization;active;;;;;;;;;2020-07-24;;;;
-be-ns-nihdi-professional;https://www.ehealth.fgov.be/standards/fhir/NamingSystem/nihdi-professional;;;NamingSystem;BeNSNIHDIProfessional;active;;;;;;;;;2020-07-24;;;;
-be-ns-one-vaccination;https://www.ehealth.fgov.be/standards/fhir/NamingSystem/one-vaccination;;;NamingSystem;BeNSONEVaccinations;active;;;;;;;;;2020-07-24;;;;
-be-ns-product-manufacturer;https://www.ehealth.fgov.be/standards/fhir/NamingSystem/product-manufacturer;;;NamingSystem;BeNSManufacturers;active;;;;;;;;;2020-07-24;;;;
-be-cbe;https://www.ehealth.fgov.be/standards/fhir/NamingSystem/cbe;;;NamingSystem;BeCBENamingSystem;active;;;;;;;;;2019-06-05T00:00:00+02:00;;;;
-be-ehp;https://www.ehealth.fgov.be/standards/fhir/NamingSystem/ehp;;;NamingSystem;BeEhealthPartnerIDNamingSystem;active;;;;;;;;;2019-06-05T00:00:00+02:00;;;;
-be-insurancenumber;https://www.ehealth.fgov.be/standards/fhir/NamingSystem/insurancenumber;;;NamingSystem;BeInsuranceNumberNamingSystem;active;;;;;;;;;2020-06-01;;;;
-be-insurancymembership;https://www.ehealth.fgov.be/standards/fhir/NamingSystem/insurancymembership;;;NamingSystem;BeInsurancymembershipNamingSystem;active;;;;;;;;;2020-06-01;;;;
-be-nihdi;https://www.ehealth.fgov.be/standards/fhir/NamingSystem/nihdi;;;NamingSystem;BeNIHDINamingSystem;active;;;;;;;;;2019-06-07T00:00:00+02:00;;;;
-be-ssin;https://www.ehealth.fgov.be/standards/fhir/NamingSystem/ssin;;;NamingSystem;BeSSINNamingSystem;active;;;;;;;;;2019-06-05T00:00:00+02:00;;;;
-be-uhmep;https://www.ehealth.fgov.be/standards/fhir/NamingSystem/uhmep;;;NamingSystem;BeUnadressedHealthMessageExchangePlatform;active;;;;;;;;;2020-06-01;;;;
-be-addiction;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-addiction;;;Profile;BeAddiction;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-address;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-address;;;Data type;BeAddress;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-be-allergyintolerance;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-allergyintolerance;;;Profile;BeAllergyIntolerance;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-be-communication;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-communication;;;Profile;BeCommunication;active;;;;;;1.0.0;;;2021-01-18T09:02:46+00:00;;;;
-be-homecare-plan;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-homecare-plan;;;Profile;BeHomeCarePlan;active;;;;;;1.0.0;;;2021-01-18T09:02:46+00:00;;;;
-be-homecare-team;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-homecare-team;;;Profile;BeHomeCareTeam;active;;;;;;1.0.0;;;2021-01-18T09:02:46+00:00;;;;
-be-observation;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-observation;;;Profile;BeObservation;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-be-observationcodeableconcept;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-observationcodeableconcept;;;Data type;BeObservationCodeableConcept;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-be-organization;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-organization;;;Profile;BeOrganization;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-be-patient;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-patient;;;Profile;BePatient;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-be-patientwill;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-patientwill;;;Profile;BePatientWill;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-practitioner;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-practitioner;;;Profile;BePractitioner;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-be-practitionerrole;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-practitionerrole;;;Profile;BePractitionerRole;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-be-problem;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-problem;;;Profile;BeProblem;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-provenance;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-provenance;;;Profile;BeProvenance;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-be-scoreresult;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-scoreresult;;;Profile;BeScoreResult;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-vaccination;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-vaccination;;;Profile;BeVaccination;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-allergyintolerancecode;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-allergyintolerancecode;;;ValueSet;BeAllergyIntoleranceCode;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-be-causativeagent;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-causativeagent;;;ValueSet;BeCausativeAgent;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-be-civilstate;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-civilstate;;;ValueSet;BeCivilstate;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-be-contactperson;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-contactperson;;;ValueSet;BeContactPerson;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-be-exposureroute;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-exposureroute;;;ValueSet;BeExposureRoute;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-be-noallergy;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-noallergy;;;ValueSet;BeNoAllergy;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-eagreementproductorservice;http://www.mycarenet.be/fhir/ValueSet/eagreementproductorservice;;;ValueSet;BeProductOrServiceNihdiEAgreement;active;;;;;;1.0.0;;;;;;;
-be-riskmanifestation;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-riskmanifestation;;;ValueSet;BeRiskManifestation;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
-be-vs-addiction-category;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-addiction-category;;;ValueSet;BeVSAddictionCategory;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-vs-addiction-code;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-addiction-code;;;ValueSet;BeVSAddictionCode;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-vs-bodysite;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-bodysite;;;ValueSet;BeVSBodySite;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-vs-care-location;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-care-location;;;ValueSet;BeVSCareLocation;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-vs-diarytopic;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-diarytopic;;;ValueSet;BeVSDiaryTopic;active;;;;;;1.0.0;;;2021-01-18T09:02:46+00:00;;;;
-be-vs-laterality;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-laterality;;;ValueSet;BeVSLaterality;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-vs-patientwill-category;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-patientwill-category;;;ValueSet;BeVSPatientWillCategory;active;;;;;;1.0.0;;;2020-10-01T11:01:09+00:00;;;;
-be-vs-patientwill-code;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-patientwill-code;;;ValueSet;BeVSPatientWillCode;active;;;;;;1.0.0;;;2020-10-01T11:01:09+00:00;;;;
-be-vs-problem-category;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-problem-category;;;ValueSet;BeVSProblemCategory;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-vs-problem-code;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-problem-code;;;ValueSet;BeVSProblemCode;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-vs-problem-origin-type;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-problem-origin-type;;;ValueSet;BeVSProblemOriginType;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-vs-score;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-score;;;ValueSet;BeVSScore;active;;;;;;1.0.0;;;2020-10-01T11:01:09+00:00;;;;
-be-vs-scorecategory;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-scorecategory;;;ValueSet;BeVSScoreCategory;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-vs-vaccination-administration-route;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-vaccination-administration-route;;;ValueSet;BeVSVaccineAdministrationRoute;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-vs-vaccination-confirmation-status;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-vaccination-confirmation-status;;;ValueSet;BeVSVaccinationConfirmationStatus;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-be-vs-vaccination-status-reason;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-vaccination-status-reason;;;ValueSet;BeVSVaccinationStatusReason;active;;;;;;1.0.0;;;2021-01-10T10:59:49+00:00;;;;
-hl7.be.core;https://www.ehealth.fgov.be/standards/fhir/ImplementationGuide/hl7.be.core;;;ImplementationGuide;Core IG;active;;;;;;1.0.0;;;2019-12-19T09:13:57+01:00;;;;
+,id,version,name,url,date,status,type,fhirVersion
+0,cd-civilstate,1.0.0,CivilState,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-civilstate,2019-12-19,active,CodeSystem,
+1,cd-contact-person,1.0.0,ContactPerson,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-contact-person,2019-12-19,active,CodeSystem,
+2,cd-fed-country,1.0.0,FedCountry,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-fed-country,2019-12-19,active,CodeSystem,
+3,cd-hcparty,1.0.0,HCParty,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-hcparty,2019-12-19,active,CodeSystem,
+4,hl7.be.core,1.0.0,Core IG,https://www.ehealth.fgov.be/standards/fhir/ImplementationGuide/hl7.be.core,2019-12-19,active,ImplementationGuide,['4.0.1']
+5,be-cbe,1.0.0,,,2019-06-05,active,NamingSystem,
+6,be-ehp,1.0.0,,,2019-06-05,active,NamingSystem,
+7,be-nihdi,1.0.0,,,2019-06-07,active,NamingSystem,
+8,be-ssin,1.0.0,,,2019-06-05,active,NamingSystem,
+9,be-address,1.0.0,BeAddress,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-address,2019-12-19,active,Data type,4.0.1
+10,be-allergyintolerance,1.0.0,BeAllergyIntolerance,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-allergyintolerance,2019-12-19,active,Profile,4.0.1
+11,be-observation,1.0.0,BeObservation,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-observation,2019-12-19,active,Profile,4.0.1
+12,be-observationcodeableconcept,1.0.0,BeObservationCodeableConcept,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-observationcodeableconcept,2019-12-19,active,Data type,4.0.1
+13,be-organization,1.0.0,BeOrganization,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-organization,2019-12-19,active,Profile,4.0.1
+14,be-patient,1.0.0,BePatient,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-patient,2019-12-19,active,Profile,4.0.1
+15,be-practitioner,1.0.0,BePractitioner,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-practitioner,2019-12-19,active,Profile,4.0.1
+16,be-practitionerrole,1.0.0,BePractitionerRole,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-practitionerrole,2019-12-19,active,Profile,4.0.1
+17,be-provenance,1.0.0,BeProvenance,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-provenance,2019-12-19,active,Profile,4.0.1
+18,be-allergyintolerancecode,1.0.0,BeAllergyIntoleranceCode,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-allergyintolerancecode,2019-12-19,active,ValueSet,
+19,be-causativeagent,1.0.0,BeCausativeAgent,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-causativeagent,2019-12-19,active,ValueSet,
+20,be-civilstate,1.0.0,BeCivilstate,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-civilstate,2019-12-19,active,ValueSet,
+21,be-contactperson,1.0.0,BeContactPerson,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-contactperson,2019-12-19,active,ValueSet,
+22,be-exposureroute,1.0.0,BeExposureRoute,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-exposureroute,2019-12-19,active,ValueSet,
+23,be-noallergy,1.0.0,BeNoAllergy,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-noallergy,2019-12-19,active,ValueSet,
+24,be-riskmanifestation,1.0.0,BeRiskManifestation,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-riskmanifestation,2019-12-19,active,ValueSet,
+25,cd-civilstate,1.0,CivilState,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-civilstate,,active,CodeSystem,
+26,cd-contact-person,1.2,ContactPerson,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-contact-person,,active,CodeSystem,
+27,cd-fed-country,1.2,FedCountry,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-fed-country,,active,CodeSystem,
+28,cd-hcparty,1.15,HCParty,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-hcparty,,active,CodeSystem,
+29,be-cbe,1.15,,,2019-06-05,active,NamingSystem,
+30,be-ehp,1.15,,,2019-06-05,active,NamingSystem,
+31,be-nihdi,1.15,,,2019-06-07,active,NamingSystem,
+32,be-ssin,1.15,,,2019-06-05,active,NamingSystem,
+33,be-address,1.0.0,BeAddress,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-address,,active,Data type,4.0.0
+34,be-allergyintolerance,1.0.0,BeAllergyIntolerance,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-allergyintolerance,,active,Profile,4.0.0
+35,be-observation,1.0.0,BeObservation,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-observation,,active,Profile,4.0.0
+36,be-observationcodeableconcept,1.0.0,BeObservationCodeableConcept,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-observationcodeableconcept,,active,Data type,4.0.0
+37,be-organization,1.0.0,BeOrganization,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-organization,,active,Profile,4.0.0
+38,be-patient,1.0.0,BePatient,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-patient,,active,Profile,4.0.0
+39,be-practitioner,1.0.0,BePractitioner,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-practitioner,,active,Profile,4.0.0
+40,be-practitionerrole,1.0.0,BePractitionerRole,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-practitionerrole,,active,Profile,4.0.0
+41,be-provenance,1.0.0,BeProvenance,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-provenance,,active,Profile,4.0.0
+42,be-allergyintolerancecode,1.0.0,BeAllergyIntoleranceCode,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-allergyintolerancecode,,active,ValueSet,
+43,be-causativeagent,1.0.0,BeCausativeAgent,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-causativeagent,,active,ValueSet,
+44,be-civilstate,1.0.0,BeCivilstate,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-civilstate,,active,ValueSet,
+45,be-contactperson,1.0.0,BeContactPerson,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-contactperson,,active,ValueSet,
+46,be-exposureroute,1.0.0,BeExposureRoute,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-exposureroute,,active,ValueSet,
+47,be-noallergy,1.0.0,BeNoAllergy,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-noallergy,,active,ValueSet,
+48,be-riskmanifestation,1.0.0,BeRiskManifestation,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-riskmanifestation,,active,ValueSet,
+49,bundleHistory,1.0.0,,,,,Bundle,
+50,albert,1.0.0,Albert,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/albert,2021-05-26,active,CodeSystem,
+51,cd-civilstate,1.0.0,Cdcivilstate,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-civilstate,2021-05-26,active,CodeSystem,
+52,cd-contact-person,1.0.0,Cdcontactperson,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-contact-person,2021-05-26,active,CodeSystem,
+53,cd-fed-country,1.1.0,Cdfedcountry,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-fed-country,2021-05-26,active,CodeSystem,
+54,cd-hcparty,1.1.0,HCParty,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-hcparty,2021-05-26,active,CodeSystem,
+55,fed.be.core,1.1.0,TheCoreBelgianFederalFHIRProfiles,https://www.ehealth.fgov.be/standards/fhir/ImplementationGuide/fed.be.core,2021-05-26,active,ImplementationGuide,['4.0.1']
+56,fed.be.core,1.1.0,TheCoreBelgianFederalFHIRProfiles,https://www.ehealth.fgov.be/standards/fhir/ImplementationGuide/fed.be.core,2021-05-26,active,ImplementationGuide,['4.0.1']
+57,be-cbe,1.1.0,,,2019-06-05,active,NamingSystem,
+58,be-ehp,1.1.0,,,2019-06-05,active,NamingSystem,
+59,be-nihdi,1.1.0,,,2019-06-05,active,NamingSystem,
+60,be-ssin,1.1.0,,,2019-06-05,active,NamingSystem,
+61,eHealthPlatform,1.1.0,,,,,Organization,
+62,be-address,1.0.0,BeAddress,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-address,2021-05-26,active,Data type,4.0.1
+63,be-allergyintolerance,1.0.0,BeAllergyIntolerance,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-allergyintolerance,2021-05-26,active,Profile,4.0.1
+64,be-observation,1.0.0,BeObservation,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-observation,2021-05-26,active,Profile,4.0.1
+65,be-observationcodeableconcept,1.0.0,BeObservationCodeableConcept,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-observationcodeableconcept,2021-05-26,active,Data type,4.0.1
+66,be-organization,1.0.0,BeOrganization,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-organization,2021-05-26,active,Profile,4.0.1
+67,be-patient,1.0.0,BePatient,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-patient,2021-05-26,active,Profile,4.0.1
+68,be-practitioner,1.0.0,BePractitioner,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-practitioner,2021-05-26,active,Profile,4.0.1
+69,be-practitionerrole,1.0.0,BePractitionerRole,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-practitionerrole,2021-05-26,active,Profile,4.0.1
+70,be-provenance,1.0.0,BeProvenance,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-provenance,2021-05-26,active,Profile,4.0.1
+71,be-allergyintolerancecode,1.0.0,BeAllergyIntoleranceCode,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-allergyintolerancecode,2021-05-26,active,ValueSet,
+72,be-causativeagent,1.0.0,BeCausativeAgent,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-causativeagent,2021-05-26,active,ValueSet,
+73,be-civilstate,1.0.0,BeCivilState,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-civilstate,2021-05-26,active,ValueSet,
+74,be-contactperson,1.0.0,BeContactPerson,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-contactperson,2021-05-26,active,ValueSet,
+75,be-exposureroute,1.0.0,BeExposureRoute,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-exposureroute,2021-05-26,active,ValueSet,
+76,be-noallergy,1.0.0,BeNoAllergy,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-noallergy,2021-05-26,active,ValueSet,
+77,be-riskmanifestation,1.0.0,BeRiskManifestation,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-riskmanifestation,2021-05-26,active,ValueSet,
+78,,1.0.0,,,,,Bundle,
+79,albert,1.0.0,Albert,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/albert,2020-09-25,active,CodeSystem,
+80,be-cs-bodysite,1.0.0,BeCSBodySite,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-bodysite,2021-01-10,active,CodeSystem,
+81,be-cs-care-location,1.0.0,BeCSCareLocation,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-care-location,2021-01-10,active,CodeSystem,
+82,be-cs-diarytopic,1.0.0,BeCSDiaryTopic,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-diarytopic,2021-01-18,active,CodeSystem,
+83,be-cs-patientwill-category,1.0.0,BeCSPAtientWillCategory,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-patientwill-category,2021-01-10,active,CodeSystem,
+84,be-cs-patientwill-code,1.0.0,BeCSPAtientWillCode,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-patientwill-code,2021-01-10,active,CodeSystem,
+85,be-cs-problem-category,1.0.0,BeCSProblemCategory,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-problem-category,2021-01-10,active,CodeSystem,
+86,be-cs-problem-origin-type,1.0.0,BeCSProblemOriginType,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-problem-origin-type,2021-01-10,active,CodeSystem,
+87,be-cs-score-category,1.0.0,BeCSScoreCategory,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-score-category,2021-01-10,active,CodeSystem,
+88,be-cs-score,1.0.0,BeCSScore,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-score,2020-10-01,active,CodeSystem,
+89,be-cs-vaccination-administration-route,1.0.0,BeCSVaccineAdministrationRoute,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-vaccination-administration-route,2021-01-10,active,CodeSystem,
+90,be-cs-vaccination-confirmation-status,1.0.0,BeCSVaccinationConfirmationStatus,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-vaccination-confirmation-status,2021-01-10,active,CodeSystem,
+91,be-cs-vaccination-status-reason,1.0.0,BeCSStatusReason,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-vaccination-status-reason,2021-01-10,active,CodeSystem,
+92,cd-civilstate,1.0,CivilState,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-civilstate,,active,CodeSystem,
+93,cd-contact-person,1.2,ContactPerson,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-contact-person,,active,CodeSystem,
+94,cd-fed-country,1.1.0,Cdfedcountry,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-fed-country,2020-09-25,active,CodeSystem,
+95,cd-hcparty,1.1.0,HCParty,https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-hcparty,2020-09-25,active,CodeSystem,
+96,be-ext-addiction-quantifier,1.0.0,BeExtAddictionQuantifier,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-ext-addiction-quantifier,2021-01-10,active,Data type,4.0.1
+97,be-ext-administeredProduct,1.0.0,BeExtAdministeredProduct,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-ext-administeredProduct,2021-01-10,active,Data type,4.0.1
+98,be-ext-laterality,1.0.0,BeExtLaterality,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-ext-laterality,2021-01-10,active,Data type,4.0.1
+99,be-ext-problem-origin-type,1.0.0,BeExtProblemOriginType,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-ext-problem-origin-type,2021-01-10,active,Data type,4.0.1
+100,be-ext-recorder,1.0.0,BeExtRecorder,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-ext-recorder,2021-01-10,active,Data type,4.0.1
+101,be-ext-vaccination-confirmationStatus,1.0.0,BeExtVaccinationConfirmationStatus,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-ext-vaccination-confirmationStatus,2021-01-10,active,Data type,4.0.1
+102,be-ext-vaccination-location,1.0.0,BeExtVaccinationLocation,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-ext-vaccination-location,2021-01-10,active,Data type,4.0.1
+103,be-ext-vaccination-originalorder,1.0.0,BeExtVaccinationOriginalOrder,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-ext-vaccination-originalorder,2021-01-10,active,Data type,4.0.1
+104,be-ns-cnk-codes,1.0.0,,,2020-07-24,active,NamingSystem,
+105,be-ns-cti-extended-code,1.0.0,,,2020-07-24,active,NamingSystem,
+106,be-ns-nihdi-organization,1.0.0,,,2020-07-24,active,NamingSystem,
+107,be-ns-nihdi-professional,1.0.0,,,2020-07-24,active,NamingSystem,
+108,be-ns-one-vaccination,1.0.0,,,2020-07-24,active,NamingSystem,
+109,be-ns-product-manufacturer,1.0.0,,,2020-07-24,active,NamingSystem,
+110,be-cbe,1.0.0,,,2019-06-05,active,NamingSystem,
+111,be-ehp,1.0.0,,,2019-06-05,active,NamingSystem,
+112,be-insurancenumber,1.0.0,,,2020-06-01,active,NamingSystem,
+113,be-insurancymembership,1.0.0,,,2020-06-01,active,NamingSystem,
+114,be-nihdi,1.0.0,,,2019-06-07,active,NamingSystem,
+115,be-ssin,1.0.0,,,2019-06-05,active,NamingSystem,
+116,be-uhmep,1.0.0,,,2020-06-01,active,NamingSystem,
+117,be-addiction,1.0.0,BeAddiction,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-addiction,2021-01-10,active,Profile,4.0.1
+118,be-address,1.0.0,BeAddress,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-address,,active,Data type,4.0.0
+119,be-allergyintolerance,1.0.0,BeAllergyIntolerance,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-allergyintolerance,,active,Profile,4.0.0
+120,be-communication,1.0.0,BeCommunication,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-communication,2021-01-18,active,Profile,4.0.1
+121,be-homecare-plan,1.0.0,BeHomeCarePlan,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-homecare-plan,2021-01-18,active,Profile,4.0.1
+122,be-homecare-team,1.0.0,BeHomeCareTeam,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-homecare-team,2021-01-18,active,Profile,4.0.1
+123,be-observation,1.0.0,BeObservation,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-observation,,active,Profile,4.0.0
+124,be-observationcodeableconcept,1.0.0,BeObservationCodeableConcept,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-observationcodeableconcept,,active,Data type,4.0.0
+125,be-organization,1.0.0,BeOrganization,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-organization,,active,Profile,4.0.0
+126,be-patient,1.0.1,BePatient,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-patient,,active,Profile,4.0.0
+127,be-patientwill,1.0.0,BePatientWill,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-patientwill,2021-01-10,active,Profile,4.0.1
+128,be-practitioner,1.0.0,BePractitioner,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-practitioner,,active,Profile,4.0.0
+129,be-practitionerrole,1.0.0,BePractitionerRole,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-practitionerrole,,active,Profile,4.0.0
+130,be-problem,1.0.0,BeProblem,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-problem,2021-01-10,active,Profile,4.0.1
+131,be-provenance,1.0.0,BeProvenance,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-provenance,2021-02-12,active,Profile,4.0.1
+132,be-scoreresult,1.0.0,BeScoreResult,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-scoreresult,2021-01-10,active,Profile,4.0.1
+133,be-vaccination,1.0.0,BeVaccination,https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-vaccination,2021-01-10,active,Profile,4.0.1
+134,be-allergyintolerancecode,1.0.0,BeAllergyIntoleranceCode,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-allergyintolerancecode,,active,ValueSet,
+135,be-causativeagent,1.0.0,BeCausativeAgent,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-causativeagent,,active,ValueSet,
+136,be-civilstate,1.0.0,BeCivilstate,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-civilstate,,active,ValueSet,
+137,be-contactperson,1.0.0,BeContactPerson,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-contactperson,,active,ValueSet,
+138,be-exposureroute,1.0.0,BeExposureRoute,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-exposureroute,,active,ValueSet,
+139,be-noallergy,1.0.0,BeNoAllergy,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-noallergy,,active,ValueSet,
+140,eagreementproductorservice,1.0.0,BeProductOrServiceNihdiEAgreement,http://www.mycarenet.be/fhir/ValueSet/eagreementproductorservice,,active,ValueSet,
+141,be-riskmanifestation,1.0.0,BeRiskManifestation,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-riskmanifestation,,active,ValueSet,
+142,be-vs-addiction-category,1.0.0,BeVSAddictionCategory,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-addiction-category,2021-01-10,active,ValueSet,
+143,be-vs-addiction-code,1.0.0,BeVSAddictionCode,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-addiction-code,2021-01-10,active,ValueSet,
+144,be-vs-bodysite,1.0.0,BeVSBodySite,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-bodysite,2021-01-10,active,ValueSet,
+145,be-vs-care-location,1.0.0,BeVSCareLocation,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-care-location,2021-01-10,active,ValueSet,
+146,be-vs-diarytopic,1.0.0,BeVSDiaryTopic,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-diarytopic,2021-01-18,active,ValueSet,
+147,be-vs-laterality,1.0.0,BeVSLaterality,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-laterality,2021-01-10,active,ValueSet,
+148,be-vs-patientwill-category,1.0.0,BeVSPatientWillCategory,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-patientwill-category,2020-10-01,active,ValueSet,
+149,be-vs-patientwill-code,1.0.0,BeVSPatientWillCode,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-patientwill-code,2020-10-01,active,ValueSet,
+150,be-vs-problem-category,1.0.0,BeVSProblemCategory,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-problem-category,2021-01-10,active,ValueSet,
+151,be-vs-problem-code,1.0.0,BeVSProblemCode,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-problem-code,2021-01-10,active,ValueSet,
+152,be-vs-problem-origin-type,1.0.0,BeVSProblemOriginType,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-problem-origin-type,2021-01-10,active,ValueSet,
+153,be-vs-score,1.0.0,BeVSScore,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-score,2020-10-01,active,ValueSet,
+154,be-vs-scorecategory,1.0.0,BeVSScoreCategory,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-scorecategory,2021-01-10,active,ValueSet,
+155,be-vs-vaccination-administration-route,1.0.0,BeVSVaccineAdministrationRoute,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-vaccination-administration-route,2021-01-10,active,ValueSet,
+156,be-vs-vaccination-confirmation-status,1.0.0,BeVSVaccinationConfirmationStatus,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-vaccination-confirmation-status,2021-01-10,active,ValueSet,
+157,be-vs-vaccination-status-reason,1.0.0,BeVSVaccinationStatusReason,https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-vaccination-status-reason,2021-01-10,active,ValueSet,

@@ -86,12 +86,12 @@ def read_package(folder):
                 if (rtype=="StructureDefinition"):
                     if (json_text['kind']=='logical'): # in this case, this is a logical model
                         dtype="Logical Model"
+                    if (json_text['kind']=='complex-type') and (json_text['type']!='extension'): # in this case, it's a data type
+                        dtype="Data type"
                     if (json_text['type']=='extension'): # in this case, it's an  extension
                         dtype="Extension"
                     if (json_text['kind']=='resource'): # in this case, it's a profile
                         dtype="Profile"
-                    if (json_text['kind']=='complex-type') and (json_text['type']!='extension'): # in this case, it's a data type
-                        dtype="Data type"
                 else:
                     dtype=rtype # for other resources, the resource type is the detailed ty
 
