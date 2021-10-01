@@ -332,14 +332,23 @@ def main(package_folder):
         current_relation=create_current_df("relation.csv")#redo for newly created data in loop
         create_csv_and_update(current_df,current_relation,pack[0])
 
+    if  os.path.exists("resources_backup.csv"):
+        
+        diff = compare(
+            load_csv(open("resources_backup.csv"), key="url"),
+            load_csv(open("resources.csv"), key="url")
+        )
+        print(diff)
 
-    diff = compare(
-        load_csv(open("resources_backup.csv"), key="url"),
-        load_csv(open("resources.csv"), key="url")
-    )
-    #print(diff)
-
-    diff_df=pd.DataFrame.from_dict(diff).to_csv("diff"+datetime.datetime.now().strftime("%Y%m%d%H")+".csv")
+        diff_df=pd.DataFrame.from_dict(diff,orient='index').T
+        diff_df["timestamp"]=datetime.datetime.now().strftime("%Y%m%d%H")
+        #check if diff exists:
+        if not os.path.exists("diff.csv"):
+            diff_df.to_csv("diff.csv",sep=";",index=False)
+        else:
+            current_diff=create_current_df("diff.csv")
+            current_diff.append(diff_df,ignore_index=True)
+            current_diff.to_csv("diff.csv",sep=";",index=False)
     return "ok"
 main("packages")
 
