@@ -1,0 +1,21 @@
+{
+  "name": "ehealthplatform.be.r4.federalprofiles",
+  "version": "1.2.2",
+  "description": "eHealth Platform R4 Federal Profiles",
+  "author": "eHealth Platform",
+  "keywords": [
+    "be",
+    "ehealthplatform",
+    "federal"
+  ],
+  "license": "CC0-1.0",
+  "title": "eHealth Platform R4 Federal Profiles",
+  "fhirVersions": [
+    "4.0.1"
+  ],
+  "canonical": "https://www.ehealth.fgov.be/standards/fhir",
+  "url": "https://simplifier.net/packages/ehealthplatform.be.r4.federalprofiles/1.2.2/snapshots/$download",
+  "dependencies": {
+    "hl7.fhir.r4.core": "4.0.1"
+  }
+}

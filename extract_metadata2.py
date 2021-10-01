@@ -179,6 +179,7 @@ def read_package(folder):
 
 
 def update_resource_csv(old,new):
+    #all columns here are overlaped by procedure, for other sutff, remove or change
     list_of_changes={"updated":[],"created":[],"other":[]}
     for idx,row in new.iterrows(): #for every row in new df
         #print(row["url"])
@@ -215,7 +216,7 @@ def update_resource_csv(old,new):
     return list_of_changes
 
 def update_relation_csv(old,new):
-
+    ###right now it overlaps manual actions
     list_of_changes={"updated":[],"created":[],"other":[]}
     for idx,row in new.iterrows(): #for every row in new df
         #print(row["url"])
@@ -336,8 +337,10 @@ def main(package_folder):
         load_csv(open("resources_backup.csv"), key="url"),
         load_csv(open("resources.csv"), key="url")
     )
-    print(diff)
+    #print(diff)
 
+    diff_df=pd.DataFrame.from_dict(diff).to_csv("diff"+datetime.datetime.now().strftime("%Y%m%d%H")+".csv")
+    return "ok"
 main("packages")
 
 #print(dict_relat)

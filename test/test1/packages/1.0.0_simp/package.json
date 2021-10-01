@@ -1,0 +1,26 @@
+{
+  "name": "ehealthplatform.be.r4.federalprofiles",
+  "version": "1.0.0",
+  "canonical": null,
+  "web": "https://www.ehealth.fgov.be/standards/kmehr/en",
+  "title": "ehealthplatform.be.r4.federalprofiles",
+  "description": "eHealth Platform R4 Federal Profiles",
+  "keywords": [
+    "be",
+    "eHealth Platform"
+  ],
+  "author": "eHealth Platform",
+  "maintainers": [
+    {
+      "name": "eHealth Platform",
+      "email": "message-structure@ehealth.fgov.be"
+    }
+  ],
+  "license": "CC0-1.0",
+  "devDependencies": null,
+  "canonicals": null,
+  "dependencies": {
+    "simplifier.core.r4.extensions": "4.0.0",
+    "simplifier.core.r4": "4.0.0"
+  }
+}

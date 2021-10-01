@@ -1,0 +1,34 @@
+{
+  "name": "fed.be.core",
+  "version": "1.1.0",
+  "tools-version": 3,
+  "type": "fhir.ig",
+  "date": "20210526111511",
+  "license": "CC0-1.0",
+  "canonical": "https://www.ehealth.fgov.be/standards/fhir",
+  "notForPublication": true,
+  "url": "file://C:\\Users\\eh068\\Documents\\ImplementationGuide\\ehealthplatformstandards\\output",
+  "title": "The Core Belgian Federal FHIR Profiles",
+  "description": "The Core Belgian Profiles provide the essential and common requirement for FHIR implementations in Belgium. (built Wed, May 26, 2021 11:15+0200+02:00)",
+  "fhirVersions": [
+    "4.0.1"
+  ],
+  "dependencies": {
+    "hl7.fhir.r4.core": "4.0.1"
+  },
+  "author": "eHealth Platform",
+  "maintainers": [
+    {
+      "name": "eHealth Platform",
+      "url": "https://www.ehealth.fgov.be"
+    },
+    {
+      "name": "Message structure",
+      "email": "message-structure@ehealth.fgov.be"
+    }
+  ],
+  "directories": {
+    "lib": "package",
+    "example": "example"
+  }
+}

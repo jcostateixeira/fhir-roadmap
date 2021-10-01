@@ -1,0 +1,158 @@
+{
+  "ImplementationGuide/fed.be.core": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "StructureDefinition/be-address": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "StructureDefinition/be-allergyintolerance": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "StructureDefinition/be-observation": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "StructureDefinition/be-observationcodeableconcept": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "StructureDefinition/be-organization": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "StructureDefinition/be-patient": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "StructureDefinition/be-practitioner": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "StructureDefinition/be-practitionerrole": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "StructureDefinition/be-provenance": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "ValueSet/be-allergyintolerancecode": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "ValueSet/be-civilstate": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "ValueSet/be-contactperson": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "CodeSystem/cd-civilstate": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "CodeSystem/cd-contact-person": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "CodeSystem/cd-fed-country": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "CodeSystem/albert": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "AllergyIntolerance/allergyIntolerance1": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "AllergyIntolerance/allergyIntolerance2": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "ValueSet/be-causativeagent": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "NamingSystem/be-cbe": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "NamingSystem/be-ehp": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "ValueSet/be-exposureroute": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "NamingSystem/be-nihdi": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "ValueSet/be-noallergy": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "ValueSet/be-riskmanifestation": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "NamingSystem/be-ssin": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "Bundle/bundle1": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "Bundle/bundleHistory": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "CodeSystem/cd-hcparty": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "Organization/eHealthPlatform": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "Observation/observation1": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "Observation/observation2": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "Organization/organization1": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "Patient/patient1": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "Patient/patient2": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "Practitioner/practitioner1": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "PractitionerRole/practitionerrole1": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "Provenance/provenance1": {
+    "errors": 0,
+    "warnings": 0
+  }
+}

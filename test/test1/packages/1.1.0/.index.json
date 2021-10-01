@@ -1,0 +1,219 @@
+{
+  "index-version": 1,
+  "files": [
+    {
+      "filename": "ig-r4.json",
+      "resourceType": "ImplementationGuide",
+      "id": "fed.be.core",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/ImplementationGuide/fed.be.core",
+      "version": "1.1.0"
+    },
+    {
+      "filename": "ImplementationGuide-fed.be.core.json",
+      "resourceType": "ImplementationGuide",
+      "id": "fed.be.core",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/ImplementationGuide/fed.be.core",
+      "version": "1.1.0"
+    },
+    {
+      "filename": "StructureDefinition-be-address.json",
+      "resourceType": "StructureDefinition",
+      "id": "be-address",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-address",
+      "version": "1.0.0",
+      "kind": "complex-type",
+      "type": "Address"
+    },
+    {
+      "filename": "StructureDefinition-be-allergyintolerance.json",
+      "resourceType": "StructureDefinition",
+      "id": "be-allergyintolerance",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-allergyintolerance",
+      "version": "1.0.0",
+      "kind": "resource",
+      "type": "AllergyIntolerance"
+    },
+    {
+      "filename": "StructureDefinition-be-observation.json",
+      "resourceType": "StructureDefinition",
+      "id": "be-observation",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-observation",
+      "version": "1.0.0",
+      "kind": "resource",
+      "type": "Observation"
+    },
+    {
+      "filename": "StructureDefinition-be-observationcodeableconcept.json",
+      "resourceType": "StructureDefinition",
+      "id": "be-observationcodeableconcept",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-observationcodeableconcept",
+      "version": "1.0.0",
+      "kind": "complex-type",
+      "type": "CodeableConcept"
+    },
+    {
+      "filename": "StructureDefinition-be-organization.json",
+      "resourceType": "StructureDefinition",
+      "id": "be-organization",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-organization",
+      "version": "1.0.0",
+      "kind": "resource",
+      "type": "Organization"
+    },
+    {
+      "filename": "StructureDefinition-be-patient.json",
+      "resourceType": "StructureDefinition",
+      "id": "be-patient",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-patient",
+      "version": "1.0.0",
+      "kind": "resource",
+      "type": "Patient"
+    },
+    {
+      "filename": "StructureDefinition-be-practitioner.json",
+      "resourceType": "StructureDefinition",
+      "id": "be-practitioner",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-practitioner",
+      "version": "1.0.0",
+      "kind": "resource",
+      "type": "Practitioner"
+    },
+    {
+      "filename": "StructureDefinition-be-practitionerrole.json",
+      "resourceType": "StructureDefinition",
+      "id": "be-practitionerrole",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-practitionerrole",
+      "version": "1.0.0",
+      "kind": "resource",
+      "type": "PractitionerRole"
+    },
+    {
+      "filename": "StructureDefinition-be-provenance.json",
+      "resourceType": "StructureDefinition",
+      "id": "be-provenance",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-provenance",
+      "version": "1.0.0",
+      "kind": "resource",
+      "type": "Provenance"
+    },
+    {
+      "filename": "ValueSet-be-allergyintolerancecode.json",
+      "resourceType": "ValueSet",
+      "id": "be-allergyintolerancecode",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-allergyintolerancecode",
+      "version": "1.0.0"
+    },
+    {
+      "filename": "ValueSet-be-civilstate.json",
+      "resourceType": "ValueSet",
+      "id": "be-civilstate",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-civilstate",
+      "version": "1.0.0"
+    },
+    {
+      "filename": "ValueSet-be-contactperson.json",
+      "resourceType": "ValueSet",
+      "id": "be-contactperson",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-contactperson",
+      "version": "1.0.0"
+    },
+    {
+      "filename": "CodeSystem-cd-civilstate.json",
+      "resourceType": "CodeSystem",
+      "id": "cd-civilstate",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-civilstate",
+      "version": "1.0.0"
+    },
+    {
+      "filename": "CodeSystem-cd-contact-person.json",
+      "resourceType": "CodeSystem",
+      "id": "cd-contact-person",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-contact-person",
+      "version": "1.0.0"
+    },
+    {
+      "filename": "CodeSystem-cd-fed-country.json",
+      "resourceType": "CodeSystem",
+      "id": "cd-fed-country",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-fed-country",
+      "version": "1.1.0"
+    },
+    {
+      "filename": "CodeSystem-albert.json",
+      "resourceType": "CodeSystem",
+      "id": "albert",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/CodeSystem/albert",
+      "version": "1.0.0"
+    },
+    {
+      "filename": "ValueSet-be-causativeagent.json",
+      "resourceType": "ValueSet",
+      "id": "be-causativeagent",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-causativeagent",
+      "version": "1.0.0"
+    },
+    {
+      "filename": "NamingSystem-be-cbe.json",
+      "resourceType": "NamingSystem",
+      "id": "be-cbe",
+      "kind": "identifier"
+    },
+    {
+      "filename": "NamingSystem-be-ehp.json",
+      "resourceType": "NamingSystem",
+      "id": "be-ehp",
+      "kind": "identifier"
+    },
+    {
+      "filename": "ValueSet-be-exposureroute.json",
+      "resourceType": "ValueSet",
+      "id": "be-exposureroute",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-exposureroute",
+      "version": "1.0.0"
+    },
+    {
+      "filename": "NamingSystem-be-nihdi.json",
+      "resourceType": "NamingSystem",
+      "id": "be-nihdi",
+      "kind": "identifier"
+    },
+    {
+      "filename": "ValueSet-be-noallergy.json",
+      "resourceType": "ValueSet",
+      "id": "be-noallergy",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-noallergy",
+      "version": "1.0.0"
+    },
+    {
+      "filename": "ValueSet-be-riskmanifestation.json",
+      "resourceType": "ValueSet",
+      "id": "be-riskmanifestation",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-riskmanifestation",
+      "version": "1.0.0"
+    },
+    {
+      "filename": "NamingSystem-be-ssin.json",
+      "resourceType": "NamingSystem",
+      "id": "be-ssin",
+      "kind": "identifier"
+    },
+    {
+      "filename": "Bundle-bundleHistory.json",
+      "resourceType": "Bundle",
+      "id": "bundleHistory",
+      "type": "collection"
+    },
+    {
+      "filename": "CodeSystem-cd-hcparty.json",
+      "resourceType": "CodeSystem",
+      "id": "cd-hcparty",
+      "url": "https://www.ehealth.fgov.be/standards/fhir/CodeSystem/cd-hcparty",
+      "version": "1.1.0"
+    },
+    {
+      "filename": "Organization-eHealthPlatform.json",
+      "resourceType": "Organization",
+      "id": "eHealthPlatform"
+    }
+  ]
+}
