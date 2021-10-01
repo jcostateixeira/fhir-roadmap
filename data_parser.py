@@ -8,7 +8,9 @@ final_data={"data":[]}
 
 def create_edges(element,relationdf):
     edge_info={"profile":("","","",""),"transaction":("transaction","Transaction From","bar","#7a8989"),"questionnaire":("questionnaire","Questionnnaire From","bar","#453C5E"),"namingsystem":("system","System","diamond", "#404040" ),"codesystem":("values_from","Values from","arrow", "#404000" ),"valueset":("binding_req","Bound (Req)","arrow", "#000000"),"extension":("extension","Extension","curve", "#400000" ),"logicalmodel":("logical_model_from","Model from","arrow", "#000000"),"system":("system","System","diamond", "#404040" )}
+    new_edge_info={"valuesFrom":("values_from","Values from","arrow", "#404000" ),"Bound_Exam":("binding_req","Bound (Ext)","arrow", "#000000"),"Bound_Pref":("binding_req","Bound (Ext)","arrow", "#000000"),"Bound_Ext":("binding_req","Bound (Ext)","arrow", "#000000"),"Bound_Req":("binding_req","Bound (Req)","arrow", "#000000"),"extension":("extension","Extension","curve", "#400000" )}
     #print(element["id"])
+
     relation_list=relationdf[relationdf["source"]==element["id"]]
     #print(relation_list)
     if len(relation_list)==0:
@@ -18,15 +20,16 @@ def create_edges(element,relationdf):
     #relation=relation_list.split(sep)
 
     for idx,node in relation_list.iterrows():
-       # print(node)
-        r=edge_info[element["type"].lower()][0]
-       # r_label=edge_info[element["type"].lower()][1]
-        r_label=node["relation"]
-        arrows=edge_info[element["type"].lower()][2]
-        arrow_color=edge_info[element["type"].lower()][3]
-        edge={"from": node["target_id"],"to": element["id"], "relation":r, "label": r_label,"arrows": {"to":{ "enabled": True,"type":arrows} },"color": { "color": arrow_color }}
-        print(edge)
-        edges_list.append(edge)
+        if node["source"] and node["target_id"]:
+            print(node["relation"])
+            r=new_edge_info[node["relation"]][0]
+            r_label=new_edge_info[node["relation"]][1]
+           # r_label=node["relation"]
+            arrows=new_edge_info[node["relation"]][2]
+            arrow_color=new_edge_info[node["relation"]][3]
+            edge={"from": node["target_id"],"to": element["id"], "relation":r, "label": r_label,"arrows": {"to":{ "enabled": True,"type":arrows} },"color": { "color": arrow_color }}
+         #   print(edge)
+            edges_list.append(edge)
 
 
 def get_data_and_create_node(datafile="data.csv",relationfile="relation.csv"):

@@ -42,7 +42,7 @@ def extract_relation(res,resource_type):
         valuesFrom = expansion.contains.system
     """
     dict_relat=[]
-    relation_type_data={"required":"Bound (Req)","extensible":"Bound (Ext)","preferred":"Bound (Pref)","example":"Bound (Exam)"}
+    relation_type_data={"required":"Bound_Req","extensible":"Bound_Ext","preferred":"Bound_Pref","example":"Bound_Exam"}
 
     if resource_type=="Profile":
         elements=res.get('snapshot', {}).get('element', {})
@@ -57,7 +57,7 @@ def extract_relation(res,resource_type):
                 if l.get("code",{})=="Extension":
                     #pass
                     if l.get("profile"):
-                        dict_relat.append({"source":res.get("id"),"target_url":l.get("profile"),"relation":"Extension"})
+                        dict_relat.append({"source":res.get("id"),"target_url":l.get("profile"),"relation":"extension"})
 
                  #   print()
     elif resource_type=="ValueSet":
@@ -154,7 +154,7 @@ def read_package(folder):
   #  print(result)
     relation_unique = {x['source']:x for x in relations}.values() #dont quite know why so much duplicates
     df_relation=pd.DataFrame(relation_unique)
-
+    # we cannot assume csv exists when creating, so after each package folder we search for it in the elements
     df_relation["target_id"]=df_relation.apply(get_target_id,resources_df=pd.DataFrame(result),axis=1)
    
     return pd.DataFrame(result),df_relation
