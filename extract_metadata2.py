@@ -17,10 +17,16 @@ def create_current_df(path):
     else:
         return None
 
-def extract_relation(res,resource_type):
-    dict_relat=[]
 
-    
+def get_target_id(row,resources_df):
+    for idx,r in resources_df.iterrows():
+     #   print(idx,r)
+     #   print(row["target_url"])
+        if row["target_url"]==r["url"]:
+            return r["id"]
+    return None
+
+def extract_relation(res,resource_type):
     """
     this function takes a unique resource and create the entries for relation.csv
     Logic:
@@ -35,6 +41,7 @@ def extract_relation(res,resource_type):
         valuesFrom = compose.include.system
         valuesFrom = expansion.contains.system
     """
+    dict_relat=[]
     relation_type_data={"required":"Bound (Req)","extensible":"Bound (Ext)","preferred":"Bound (Pref)","example":"Bound (Exam)"}
 
     if resource_type=="Profile":
@@ -42,21 +49,21 @@ def extract_relation(res,resource_type):
         for element in  elements:
             binding=element.get("binding",{}).get("strength") 
             value=element.get("binding",{}).get("valueSet")
-
             if binding:
+            #    print(value)
                 #print(resource_type,"binding -> ",binding,value)
-                dict_relat.append({"id":res.get("id"),"relation":value,"relation_type":relation_type_data[binding]})
+                dict_relat.append({"source":res.get("id"),"target_url":value,"relation":relation_type_data[binding]})
             for l in element.get("type",[]):
                 if l.get("code",{})=="Extension":
                     #pass
                     if l.get("profile"):
-                        dict_relat.append({"id":res.get("id"),"relation":l.get("profile"),"relation_type":"Extension"})
+                        dict_relat.append({"source":res.get("id"),"target_url":l.get("profile"),"relation":"Extension"})
 
                  #   print()
     elif resource_type=="ValueSet":
         for s in res.get("compose",{}).get("include",[]):
             if s.get("system"):
-                dict_relat.append({"id":res.get("id"),"relation":s.get("system"),"relation_type":"valuesFrom"})
+                dict_relat.append({"source":res.get("id"),"target_url":s.get("system"),"relation":"valuesFrom"})
         #print(res.get("expansion",{}).get("contains",[]))
     return dict_relat
 
@@ -145,8 +152,12 @@ def read_package(folder):
                 relations.extend(extract_relation(json_text,record["type"])) #adds entries to relation list
                 result.append(record)
   #  print(result)
-    relation_unique = {x['id']:x for x in relations}.values() #dont quite know why so much duplicates
-    return pd.DataFrame(result),pd.DataFrame(relation_unique)
+    relation_unique = {x['source']:x for x in relations}.values() #dont quite know why so much duplicates
+    df_relation=pd.DataFrame(relation_unique)
+
+    df_relation["target_id"]=df_relation.apply(get_target_id,resources_df=pd.DataFrame(result),axis=1)
+   
+    return pd.DataFrame(result),df_relation
 
 
 # CSV structure: 
@@ -208,17 +219,16 @@ def update_relation_csv(old,new):
     list_of_changes={"updated":[],"created":[],"other":[]}
     for idx,row in new.iterrows(): #for every row in new df
         #print(row["url"])
-        if row["id"] in old["id"].values: #if url in new df is in old df
+        if row["source"] in old["source"].values: #if url in new df is in old df
             #update values
-            list_of_changes["updated"].append(row["id"])
-            old.loc[old["id"]==row["id"],"relation"]=row.get("relation")
-            old.loc[old["id"]==row["id"],"relation_type"]=row.get("relation_type")
+            list_of_changes["updated"].append(row["source"])
+            old.loc[old["source"]==row["source"],"target_id"]=row.get("target_id")
+            old.loc[old["source"]==row["source"],"relation"]=row.get("relation")
+            old.loc[old["source"]==row["source"],"target_url"]=row.get("target_url")
 
-            
-
-        elif row["id"] is not None: #if does not exist, add to df (must have url)
+        elif row["source"] is not None: #if does not exist, add to df (must have url)
             #print(row)
-            list_of_changes["created"].append(row["id"])
+            list_of_changes["created"].append(row["source"])
             old=old.append(row,ignore_index=True)
         else:
             list_of_changes["other"].append("something weird on row "+str(idx))

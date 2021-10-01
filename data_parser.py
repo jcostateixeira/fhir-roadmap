@@ -9,7 +9,7 @@ final_data={"data":[]}
 def create_edges(element,relationdf):
     edge_info={"profile":("","","",""),"transaction":("transaction","Transaction From","bar","#7a8989"),"questionnaire":("questionnaire","Questionnnaire From","bar","#453C5E"),"namingsystem":("system","System","diamond", "#404040" ),"codesystem":("values_from","Values from","arrow", "#404000" ),"valueset":("binding_req","Bound (Req)","arrow", "#000000"),"extension":("extension","Extension","curve", "#400000" ),"logicalmodel":("logical_model_from","Model from","arrow", "#000000"),"system":("system","System","diamond", "#404040" )}
     #print(element["id"])
-    relation_list=relationdf[relationdf["id"]==element["id"]]
+    relation_list=relationdf[relationdf["source"]==element["id"]]
     #print(relation_list)
     if len(relation_list)==0:
         return None
@@ -21,10 +21,10 @@ def create_edges(element,relationdf):
        # print(node)
         r=edge_info[element["type"].lower()][0]
        # r_label=edge_info[element["type"].lower()][1]
-        r_label=node["relation_type"]
+        r_label=node["relation"]
         arrows=edge_info[element["type"].lower()][2]
         arrow_color=edge_info[element["type"].lower()][3]
-        edge={"from": node["relation"],"to": element["id"], "relation":r, "label": r_label,"arrows": {"to":{ "enabled": True,"type":arrows} },"color": { "color": arrow_color }}
+        edge={"from": node["target_id"],"to": element["id"], "relation":r, "label": r_label,"arrows": {"to":{ "enabled": True,"type":arrows} },"color": { "color": arrow_color }}
         print(edge)
         edges_list.append(edge)
 
