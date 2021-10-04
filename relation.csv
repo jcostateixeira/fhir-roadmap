@@ -122,3 +122,14 @@ be-vs-vaccination-status-reason;http://terminology.hl7.org/CodeSystem/v3-ActReas
 be-allergyintolerancecode;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-causativeagent;includes;be-causativeagent
 be-allergyintolerancecode;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-noallergy;includes;be-noallergy
 be-vs-laterality;http://hl7.org/fhir/ValueSet/bodystructure-relative-location;includes;
+be-address;http://hl7.org/fhir/StructureDefinition/language;extension;
+be-address;http://hl7.org/fhir/ValueSet/address-use;Bound_Req;
+be-address;http://hl7.org/fhir/ValueSet/address-type;Bound_Req;
+be-address;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName;extension;
+be-address;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber;extension;
+be-address;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-postBox;extension;
+be-address;http://hl7.org/fhir/ValueSet/languages;Bound_Pref;
+be-ext-laterality;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-laterality;Bound_Req;be-vs-laterality
+be-ext-problem-origin-type;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-problem-origin-type;Bound_Req;be-vs-problem-origin-type
+be-ext-vaccination-confirmationStatus;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-vaccination-confirmation-status;Bound_Req;be-vs-vaccination-confirmation-status
+be-ext-vaccination-location;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-vs-care-location;Bound_Pref;be-vs-care-location

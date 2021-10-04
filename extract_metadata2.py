@@ -44,9 +44,10 @@ def extract_relation(res,resource_type):
     """
     dict_relat=[]
     relation_type_data={"required":"Bound_Req","extensible":"Bound_Ext","preferred":"Bound_Pref","example":"Bound_Exam"}
-    #print(resource_type,res.get("id"))
-    if resource_type=="Profile":
-        elements=res.get('snapshot', {}).get('element', {})
+   # if res.get("id")=="be-ext-laterality":
+   #     print(resource_type,res.get("id"))
+    if resource_type in ["Profile","Data type"]:
+        elements=res.get('snapshot', {}).get('element',[] )
         for element in  elements:
             binding=element.get("binding",{}).get("strength") 
             value=element.get("binding",{}).get("valueSet")
@@ -64,13 +65,15 @@ def extract_relation(res,resource_type):
                         dict_relat.append({"source":res.get("id"),"target_url":l.get("profile")[0],"relation":"extension"})
 
                  #   print()
-        elements=res.get('differential', {}).get('element', {})
 
+        elements=res.get('differential', {}).get('element', [])
+       
         for element in  elements:
             binding=element.get("binding",{}).get("strength") 
             value=element.get("binding",{}).get("valueSet")
             if binding:
-            #    print(value)
+               # print(res.get("id"),value)
+              #  print(value,res.get("id"))
                 stripped = value.split("|", 1)[0] #remove pipes
 
                 #print(resource_type,"binding -> ",binding,value)
@@ -89,10 +92,10 @@ def extract_relation(res,resource_type):
             if s.get("system"):
                 dict_relat.append({"source":res.get("id"),"target_url":s.get("system"),"relation":"valuesFrom"})
             if s.get("valueSet"):
-                print(s.get("valueSet"))
+              #  print(s.get("valueSet"))
                 dict_relat.append({"source":res.get("id"),"target_url":s.get("valueSet")[0],"relation":"includes"})
 
-        print(res.get("expansion",{}).get("contains",[]))
+        #print(res.get("expansion",{}).get("contains",[]))
 
     return dict_relat
 
