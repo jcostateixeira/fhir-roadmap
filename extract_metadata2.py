@@ -43,28 +43,51 @@ def extract_relation(res,resource_type):
     """
     dict_relat=[]
     relation_type_data={"required":"Bound_Req","extensible":"Bound_Ext","preferred":"Bound_Pref","example":"Bound_Exam"}
-
+    #print(resource_type,res.get("id"))
     if resource_type=="Profile":
         elements=res.get('snapshot', {}).get('element', {})
         for element in  elements:
             binding=element.get("binding",{}).get("strength") 
             value=element.get("binding",{}).get("valueSet")
             if binding:
-            #    print(value)
+              #  print(value)
+                stripped = value.split("|", 1)[0] #remove pipes
+             #   if res.get("id")=="be-allergyintolerance":
+            #      print(stripped)
                 #print(resource_type,"binding -> ",binding,value)
-                dict_relat.append({"source":res.get("id"),"target_url":value,"relation":relation_type_data[binding]})
+                dict_relat.append({"source":res.get("id"),"target_url":stripped,"relation":relation_type_data[binding]})
             for l in element.get("type",[]):
                 if l.get("code",{})=="Extension":
                     #pass
                     if l.get("profile"):
-                        dict_relat.append({"source":res.get("id"),"target_url":l.get("profile"),"relation":"extension"})
+                        dict_relat.append({"source":res.get("id"),"target_url":l.get("profile")[0],"relation":"extension"})
+
+                 #   print()
+        elements=res.get('differential', {}).get('element', {})
+
+        for element in  elements:
+            binding=element.get("binding",{}).get("strength") 
+            value=element.get("binding",{}).get("valueSet")
+            if binding:
+            #    print(value)
+                stripped = value.split("|", 1)[0] #remove pipes
+
+                #print(resource_type,"binding -> ",binding,value)
+                dict_relat.append({"source":res.get("id"),"target_url":stripped,"relation":relation_type_data[binding]})
+            for l in element.get("type",[]):
+                if l.get("code",{})=="Extension":
+                    #pass
+                    if l.get("profile"):
+                    #    print(l.get("profile")[0],res.get("id"))
+                        dict_relat.append({"source":res.get("id"),"target_url":l.get("profile")[0],"relation":"extension"})
 
                  #   print()
     elif resource_type=="ValueSet":
         for s in res.get("compose",{}).get("include",[]):
             if s.get("system"):
                 dict_relat.append({"source":res.get("id"),"target_url":s.get("system"),"relation":"valuesFrom"})
-        #print(res.get("expansion",{}).get("contains",[]))
+        print(res.get("expansion",{}).get("contains",[]))
+
     return dict_relat
 
 def read_package(folder):
@@ -152,11 +175,18 @@ def read_package(folder):
                 relations.extend(extract_relation(json_text,record["type"])) #adds entries to relation list
                 result.append(record)
   #  print(result)
-    relation_unique = {x['source']:x for x in relations}.values() #dont quite know why so much duplicates
-    df_relation=pd.DataFrame(relation_unique)
+  #  print(relations)
+    #relation_unique = {x['source']:x for x in relations}.values() #dont quite know why so much duplicates
+    #df_relation=pd.DataFrame(relation_unique)#.drop_duplicates()
+   # try:
+    df_relation=pd.DataFrame(relations).drop_duplicates()
+   # except:
+       # pd.DataFrame(relations).to_csv("erro.csv")
+       # break
+  #  print(df_relation)
     # we cannot assume csv exists when creating, so after each package folder we search for it in the elements
     df_relation["target_id"]=df_relation.apply(get_target_id,resources_df=pd.DataFrame(result),axis=1)
-   
+  # print(df_relation.head(10))
     return pd.DataFrame(result),df_relation
 
 
@@ -216,25 +246,37 @@ def update_resource_csv(old,new):
     return list_of_changes
 
 def update_relation_csv(old,new):
+    #print(new.head(10))
+   # print(old,new)
     ###right now it overlaps manual actions
     list_of_changes={"updated":[],"created":[],"other":[]}
+    #make primary key on both df:
+    old["pk"]=old["source"]+old["target_url"]
+    #try:
+    new["pk"]=new["source"]+new["target_url"]
+   # except Exception as err:
+      #  print("eerorrrr------------",err)
+       # print(new)
+      #  new.to_csv("errro.csv")
     for idx,row in new.iterrows(): #for every row in new df
         #print(row["url"])
-        if row["source"] in old["source"].values: #if url in new df is in old df
+        if row["pk"] in old["pk"].values: #if primary key exists (source+target)
+        
             #update values
             list_of_changes["updated"].append(row["source"])
-            old.loc[old["source"]==row["source"],"target_id"]=row.get("target_id")
-            old.loc[old["source"]==row["source"],"relation"]=row.get("relation")
-            old.loc[old["source"]==row["source"],"target_url"]=row.get("target_url")
+            old.loc[old["pk"]==row["pk"],"target_id"]=row.get("target_id")
+            old.loc[old["pk"]==row["pk"],"relation"]=row.get("relation")
+            old.loc[old["pk"]==row["pk"],"target_url"]=row.get("target_url")
 
         elif row["source"] is not None: #if does not exist, add to df (must have url)
             #print(row)
             list_of_changes["created"].append(row["source"])
             old=old.append(row,ignore_index=True)
         else:
-            list_of_changes["other"].append("something weird on row "+str(idx))
+            list_of_changes["other"].append("something weird on row "+str(idx)) 
 
     #save the old again
+    old.drop(columns=["pk"],inplace=True)
     old.to_csv("relation.csv",sep=";",index=False)
     #return track changes
 
@@ -253,6 +295,7 @@ def create_csv_and_update(current_resource,current_relation,package_folder):
   #  print(current_resource)
     outcome={"resource_status":"error","resource_outcome":"N/A","relation_outcome":"N/A","relation_status":"error"}
     resource_df,relation_df=read_package(package_folder)
+    #print(relation_df)
   #  print(n_relation)
    # n_df.to_csv("new_.csv",sep=";",index=False)
     if type(current_resource)==pd.DataFrame and len(resource_df)>0:
@@ -302,8 +345,8 @@ def getPackageFolders(path):
          #   print(pkg_json)
             package_date=pkg_json.get("date") #not all have date
             if not package_date:
-             #  raise ValueError("Package without date: "+path)
-               package_date="19900801000000"
+               raise ValueError("Package without date: "+path)
+              # package_date="19900801000000" just for testing
             directoryList.append((path,datetime.datetime.strptime(package_date, '%Y%m%d%H%M%S')))
     # here, check the package.json and populate the list with the directory and the date in the json
     for d in os.listdir(path):

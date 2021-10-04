@@ -12,7 +12,7 @@ be-allergyintolerance;Profile;https://www.ehealth.fgov.be/standards/fhir/Structu
 be-observation;Profile;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-observation;BeObservation;1.0.0;;;;;;active;;;;;;;
 be-observationcodeableconcept;Data type;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-observationcodeableconcept;BeObservationCodeableConcept;1.0.0;;;;;;active;;;;;;;
 be-organization;Profile;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-organization;BeOrganization;1.0.0;;;;;;active;;;;;;;
-be-patient;Profile;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-patient;BePatient;1.0.1.4;;Core;;;;active;;;;;;;
+be-patient;Profile;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-patient;BePatient;1.0.1;;Core;;;;active;;;;;;;
 be-practitioner;Profile;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-practitioner;BePractitioner;1.0.0;;;;;;active;;;;;;;
 be-practitionerrole;Profile;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-practitionerrole;BePractitionerRole;1.0.0;;;;;;active;;;;;;;
 be-provenance;Profile;https://www.ehealth.fgov.be/standards/fhir/StructureDefinition/be-provenance;BeProvenance;1.0.0;2021-02-12T12:13:57+01:00;;;;;active;;;;;;;
