@@ -63,6 +63,8 @@ def extract_relation(res,resource_type):
                     #pass
                     if l.get("profile"):
                         dict_relat.append({"source":res.get("id"),"target_url":l.get("profile")[0],"relation":"extension"})
+                for target_profile in l.get("targetProfile",[]):
+                    dict_relat.append({"source":res.get("id"),"target_url":target_profile,"relation":"references"})
 
                  #   print()
 
