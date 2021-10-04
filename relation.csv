@@ -119,3 +119,6 @@ be-vs-vaccination-administration-route;http://terminology.hl7.org/CodeSystem/v3-
 be-vs-vaccination-confirmation-status;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-vaccination-confirmation-status;valuesFrom;be-cs-vaccination-confirmation-status
 be-vs-vaccination-status-reason;https://www.ehealth.fgov.be/standards/fhir/CodeSystem/be-cs-vaccination-status-reason;valuesFrom;be-cs-vaccination-status-reason
 be-vs-vaccination-status-reason;http://terminology.hl7.org/CodeSystem/v3-ActReason;valuesFrom;
+be-allergyintolerancecode;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-causativeagent;includes;be-causativeagent
+be-allergyintolerancecode;https://www.ehealth.fgov.be/standards/fhir/ValueSet/be-noallergy;includes;be-noallergy
+be-vs-laterality;http://hl7.org/fhir/ValueSet/bodystructure-relative-location;includes;

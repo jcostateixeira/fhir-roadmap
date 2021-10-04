@@ -40,6 +40,7 @@ def extract_relation(res,resource_type):
     ValueSet:
         valuesFrom = compose.include.system
         valuesFrom = expansion.contains.system
+        includes = compose.include.valueSet
     """
     dict_relat=[]
     relation_type_data={"required":"Bound_Req","extensible":"Bound_Ext","preferred":"Bound_Pref","example":"Bound_Exam"}
@@ -84,8 +85,13 @@ def extract_relation(res,resource_type):
                  #   print()
     elif resource_type=="ValueSet":
         for s in res.get("compose",{}).get("include",[]):
+            #print(s)
             if s.get("system"):
                 dict_relat.append({"source":res.get("id"),"target_url":s.get("system"),"relation":"valuesFrom"})
+            if s.get("valueSet"):
+                print(s.get("valueSet"))
+                dict_relat.append({"source":res.get("id"),"target_url":s.get("valueSet")[0],"relation":"includes"})
+
         print(res.get("expansion",{}).get("contains",[]))
 
     return dict_relat

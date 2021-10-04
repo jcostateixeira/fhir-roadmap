@@ -8,7 +8,7 @@ final_data={"data":[]}
 
 def create_edges(element,relationdf):
     edge_info={"profile":("","","",""),"transaction":("transaction","Transaction From","bar","#7a8989"),"questionnaire":("questionnaire","Questionnnaire From","bar","#453C5E"),"namingsystem":("system","System","diamond", "#404040" ),"codesystem":("values_from","Values from","arrow", "#404000" ),"valueset":("binding_req","Bound (Req)","arrow", "#000000"),"extension":("extension","Extension","curve", "#400000" ),"logicalmodel":("logical_model_from","Model from","arrow", "#000000"),"system":("system","System","diamond", "#404040" )}
-    new_edge_info={"valuesFrom":("values_from","Values from","arrow", "#404000" ),"Bound_Exam":("binding_req","Bound (Ext)","arrow", "#000000"),"Bound_Pref":("binding_req","Bound (Ext)","arrow", "#000000"),"Bound_Ext":("binding_req","Bound (Ext)","arrow", "#000000"),"Bound_Req":("binding_req","Bound (Req)","arrow", "#000000"),"extension":("extension","Extension","curve", "#400000" )}
+    new_edge_info={"includes":("includes","Includes","bar","#7a8989"),"valuesFrom":("values_from","Values from","arrow", "#404000" ),"Bound_Exam":("binding_req","Bound (Ext)","arrow", "#000000"),"Bound_Pref":("binding_req","Bound (Ext)","arrow", "#000000"),"Bound_Ext":("binding_req","Bound (Ext)","arrow", "#000000"),"Bound_Req":("binding_req","Bound (Req)","arrow", "#000000"),"extension":("extension","Extension","curve", "#400000" )}
     #print(element["id"])
 
     relation_list=relationdf[relationdf["source"]==element["id"]]
