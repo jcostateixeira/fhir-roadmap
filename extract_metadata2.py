@@ -69,7 +69,7 @@ def extract_relation(res,resource_type):
                  #   print()
 
         elements=res.get('differential', {}).get('element', [])
-       
+
         for element in  elements:
             binding=element.get("binding",{}).get("strength") 
             value=element.get("binding",{}).get("valueSet")
@@ -86,6 +86,8 @@ def extract_relation(res,resource_type):
                     if l.get("profile"):
                     #    print(l.get("profile")[0],res.get("id"))
                         dict_relat.append({"source":res.get("id"),"target_url":l.get("profile")[0],"relation":"extension"})
+                for target_profile in l.get("targetProfile",[]):
+                    dict_relat.append({"source":res.get("id"),"target_url":target_profile,"relation":"references"})
 
                  #   print()
     elif resource_type=="ValueSet":
