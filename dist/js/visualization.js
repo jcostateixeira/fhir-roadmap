@@ -49,7 +49,8 @@ const edgesFilterValues = {
   logical_model_from: true,
   transaction: true,
   questionnaire: true,
-  includes: true
+  includes: true,
+  references: false
 
 };
 
