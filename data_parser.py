@@ -51,7 +51,7 @@ def get_data_and_create_node(datafile="data.csv",relationfile="relation.csv"):
     data=pd.read_csv(datafile,encoding="iso8859_1",sep=";",keep_default_na=False)
     relation=pd.read_csv(relationfile,encoding="iso8859_1",sep=";",keep_default_na=False)
 
-    colors={"Transaction":"#cce5e5","Questionnaire":"#AD97EC","DataType":"#83986B","Profile":"#CFCFCF","CodeSystem":"#CFFFFF","ValueSet":"#CFFFCF","Extension":"#FFCFCF","NamingSystem":"#FFCFFF","LogicalModel":"#87BEEF","Data type":"#CEBECF"}
+    colors={"ImplementationGuide":"#a8b94b","Transaction":"#cce5e5","Questionnaire":"#AD97EC","DataType":"#83986B","Profile":"#CFCFCF","CodeSystem":"#CFFFFF","ValueSet":"#CFFFCF","Extension":"#FFCFCF","NamingSystem":"#FFCFFF","LogicalModel":"#87BEEF","Data type":"#CEBECF"}
 
     for idx,element in data.iterrows():
     #  if element["topic"]=="Vaccination": #test only
@@ -88,5 +88,5 @@ def get_data_and_create_node(datafile="data.csv",relationfile="relation.csv"):
     with open("data/data.json", "w") as fout:
         json.dump(final_data, fout)
 
-get_data_and_create_node()
+get_data_and_create_node("resources.csv")
 
